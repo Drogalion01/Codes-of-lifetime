@@ -1,56 +1,58 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int n, a, b;
-    cin >> n >> a >> b;
-
-    if(n > (a + b))
-    {
-        cout << n - (a + b) << endl;
-        for(int i = 0; i < n - (a + b); i++) cout << "0:0" << endl;
-        for(int i = 0; i < a; i++) cout << "1:0" << endl;
-        for(int i = 0; i < b; i++) cout << "0:1" << endl;
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int n, a, b;
+  cin >> n >> a >> b;
+  int c = a;
+  vector<int> fi;
+  for (int i = 0; i < n; i++) {
+    if (i == n - 1 && c > 0) {
+        fi.push_back(c);
+        continue;
+    }
+    if (c > 0) {
+        fi.push_back(1);
+        c--;
+    } else fi.push_back(0);
+  }
+//   for (auto x : fi) cout << x << " ";
+  // cout << endl;
+  vector<int> sc;
+  c = b;
+  for (int i = 0; i < n; i++) {
+    if (i == n - 1 && c > 0) {
+        sc.push_back(c);
+        continue;
     }
 
-    else if(n == 1 && a==b) cout << "1" << endl << a << ":" << a << endl;
-    
-    else
-    {
-        cout << "0" << endl;
-
-        if (n == 1) cout << a << ":" << b << endl;
-        
-        else if (n == (a+b))
-        {
-            for(int i = 0; i < a; i++) cout << "1:0" << endl;
-            for(int i = 0; i < b; i++) cout << "0:1" << endl;
-        }
-        else
-        {
-            vector <int> arra(n, 0);
-            vector <int> arrb(n, 0);
-            arra[0] = a, arrb[0] = b;
-            for(int i = 1; i<n; i++)
-            {
-                if(arra[0]>0)
-                {
-                          arra[0]--;
-                          arra[i]++;
-                }
-                if(arrb[0]>0 && i > a)
-                {
-                          arrb[0]--;
-                          arrb[i]++;
-                }
-            }
-            if(arra[0] == arrb[0])
-            {
-                arra[0]--;
-                arra[n-1]++;
-            }
-            for (int i = 0; i<n; i++) cout << arra[i] << ":" << arrb[i] << endl;
-        }
+    if (fi[i] >= 1) {
+        sc.push_back(0);
+    } else {
+        if (c > 0) {
+            sc.push_back(1);
+            c--;
+        } else sc.push_back(0);
     }
+  }
+  
+//   for (auto x : sc) cout << x << " ";
+  if (fi[n - 1] >= 1) {
+    fi[n - 1] -= 1;
+    fi[0] += 1;
+  }
+  c = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (fi[i] == sc[i]) c++;
+  }
+
+  cout << c << endl;
+  for (int i = 0; i < n; i++) {
+    cout << fi[i] << ":" << sc[i] << endl;
+  }
+
+  return 0;
 }
