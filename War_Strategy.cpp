@@ -10,9 +10,7 @@ int main()
         long long n, m, k;
         cin >> n >> m >> k;
         long long left = k-1, right = n-k;
-        //if(left < right) swap(left,right);
-        
-        if(n==1) cout << "1" << endl;
+        if (left < right) swap (left, right);
         long long l = 0, r = 0;
         while (1)
         {
@@ -29,9 +27,8 @@ int main()
             }
             if (c == 0)
                 break;
-
-        }
-        cout << l+r+1 << endl;
+            }
+            cout << l+r+1 << endl;
         //cout << "test: " << i << endl;
     }
 
