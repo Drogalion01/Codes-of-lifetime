@@ -28,7 +28,7 @@ int main(){
                     tr++;
                     break;
                 }
-                else if (k < fl){
+                else if (fl % 2 != 0){
                     temp = fl;
                     t++;
                 }
@@ -36,7 +36,7 @@ int main(){
                     temp = cl;
                     t++;
                 }
-            } 
+            }
             if (tr == 0) cout << "-1" << endl;
         }
     }
