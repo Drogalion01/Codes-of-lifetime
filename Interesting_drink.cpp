@@ -22,10 +22,7 @@ int main()
     vector<long long> d(m, 0);
     for(int i = 0; i < m; i++){
         if(coin[i] >= mx) d[i] = n;
-        else {
-            int temp = coin[i];
-            d[i] = p[min (temp, 100000)] - p[0];
-        }
+        else d[i] = p[coin[i]];
     }
     for(int i = 0; i < m; i++) cout << d[i] << endl;
 }

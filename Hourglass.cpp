@@ -13,7 +13,7 @@ int main(){
         else if(k == m) cout << min (s, k) << endl;
         else{
             if((long long)(m/k) % 2 == 0) cout << max (s - (long long) m % k, 0LL) << endl;
-            else if ((long long)(m/k) % 2 != 0) cout << max (min(s,k) - (long long) m % k, 0LL) << endl;
+            else if ((long long)(m/k) % 2 != 0) cout << max (min (s,k) - (long long) m % k, 0LL) << endl;
         }
     }
 }

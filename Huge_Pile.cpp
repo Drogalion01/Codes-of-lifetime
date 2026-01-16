@@ -17,7 +17,6 @@ int main(){
             while (temp > 1)
             {
                 long long fl = (long long) temp/2, cl = (long long) (temp+1)/2;
-                //cout << "fl " << fl << " " << "cl " << cl << " " << t+1 << endl;
                 if (cl < k){
                     cout << "-1" << endl;
                     tr++;
@@ -32,7 +31,7 @@ int main(){
                     temp = fl;
                     t++;
                 }
-                else{
+                else {
                     temp = cl;
                     t++;
                 }

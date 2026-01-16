@@ -12,7 +12,6 @@ int main(){
         time = (double)sqrt((a-taxi[i][0])*(a-taxi[i][0]) + (b-taxi[i][1])*(b-taxi[i][1]));
         if (time != 0) time /= taxi[i][2];
         if(time < mn) mn = time;
-        cout << fixed << setprecision(8) << mn << endl;
     }
     cout << fixed << setprecision(8) << mn << endl;
 }
