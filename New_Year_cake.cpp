@@ -10,7 +10,32 @@ int main(){
         long a, b;
         cin >> a >> b;
         if (a > b) swap (a, b);
-        long t1 = a, t2 = b, r = 0;
+        long t1 = a, t2 = b, l = 0, r = 0;
+        while (1)
+        {
+            int c = 0;
+            if(t1 - max(1L, (long)pow(2,l)) >= 0) {
+                t1-=max(1L, (long)pow(2,l));
+                l++;
+                c++;
+            }
+            if(t2 - max(1L, (long)pow(2,l)) >= 0)
+            {  
+                if(c!=0){
+                    t2 -= max(1L, (long)pow(2,l));
+                    l++;
+                    c++;
+                }
+                else
+                {
+                    l++;
+                    break;
+                }
+
+            }
+            if (c==0) break;
+        }
+        t1 = b, t2 = a;
         while (1)
         {
             int c = 0;
@@ -19,15 +44,15 @@ int main(){
                 r++;
                 c++;
             }
-            if(t2 - (long)pow(2,r) >= 0)
+            if(t2 - max(1L, (long)pow(2,r)) >= 0)
             {  
-                t2 -= (long)pow(2,r);
+                t2 -= max(1L, (long)pow(2,r));
                 r++;
                 c++;
             }
             if (c==0) break;
         }
-        cout << r << endl;
+        cout << max(l,r) << endl;
     }
     return 0;
 }
