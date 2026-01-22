@@ -25,7 +25,6 @@ int main(){
                 s*=2;
                 l++;
             }
-            //cout << "  a: " << t1 << "  b: " << t2 << "layer: "<< l << endl;
         }
         s = 1;
         t1 = a, t2 = b;
@@ -42,7 +41,6 @@ int main(){
                 r++;
                 c++;
             }
-            //cout << "  a: " << t1 << "  b: " << t2 << "layer: "<< r << endl;
             if(c == 0) break;
         }
         cout << max(l, r) << endl;
