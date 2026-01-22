@@ -9,50 +9,43 @@ int main(){
     while(test_case--){
         long a, b;
         cin >> a >> b;
-        if (a > b) swap (a, b);
-        long t1 = a, t2 = b, l = 0, r = 0;
-        while (1)
-        {
+        if(a>b) swap(a,b);
+        long t1 = a, t2 = b, l = 0, r=0, s = 1;
+        while(1){
             int c = 0;
-            if(t1 - max(1L, (long)pow(2,l)) >= 0) {
-                t1-=max(1L, (long)pow(2,l));
+            if(t1 - s >= 0){
+                t1-=s;
+                s *= 2;
                 l++;
                 c++;
             }
-            if(t2 - max(1L, (long)pow(2,l)) >= 0)
-            {  
-                if(c!=0){
-                    t2 -= max(1L, (long)pow(2,l));
-                    l++;
-                    c++;
-                }
-                else
-                {
-                    l++;
-                    break;
-                }
-
+            if(c==0) break;
+            if(t2 - s >= 0){
+                t2 -= s;
+                s*=2;
+                l++;
             }
-            if (c==0) break;
+            //cout << "  a: " << t1 << "  b: " << t2 << "layer: "<< l << endl;
         }
-        t1 = b, t2 = a;
-        while (1)
-        {
+        s = 1;
+        t1 = a, t2 = b;
+        while(1){
             int c = 0;
-            if(t1 - max(1L, (long)pow(2,r)) >= 0) {
-                t1-=max(1L, (long)pow(2,r));
+            if(t2 - s >= 0){
+                t2-=s;
+                s *= 2;
+                r++;
+            }
+            if(t1 - s >= 0){
+                t1 -= s;
+                s*=2;
                 r++;
                 c++;
             }
-            if(t2 - max(1L, (long)pow(2,r)) >= 0)
-            {  
-                t2 -= max(1L, (long)pow(2,r));
-                r++;
-                c++;
-            }
-            if (c==0) break;
+            //cout << "  a: " << t1 << "  b: " << t2 << "layer: "<< r << endl;
+            if(c == 0) break;
         }
-        cout << max(l,r) << endl;
+        cout << max(l, r) << endl;
     }
     return 0;
 }
