@@ -9,41 +9,20 @@ int main(){
     while(test_case--){
         long a, b;
         cin >> a >> b;
-        if(a>b) swap(a,b);
-        long t1 = a, t2 = b, l = 0, r=0, s = 1;
-        while(1){
-            int c = 0;
-            if(t1 - s >= 0){
-                t1-=s;
-                s *= 2;
-                l++;
-                c++;
-            }
-            if(c==0) break;
-            if(t2 - s >= 0){
-                t2 -= s;
-                s*=2;
-                l++;
-            }
+        if (a > b) swap (a, b);
+        if(a==1) {
+            int t=1;
+            cout << t+(int)(a!=b) << endl;
         }
-        s = 1;
-        t1 = a, t2 = b;
-        while(1){
-            int c = 0;
-            if(t2 - s >= 0){
-                t2-=s;
-                s *= 2;
-                r++;
-            }
-            if(t1 - s >= 0){
-                t1 -= s;
-                s*=2;
-                r++;
-                c++;
-            }
-            if(c == 0) break;
+        else {
+            long ae, ao, be, bo;
+            ae = (long)max((long)(log2(a+1)-1), 1L)/2;
+            ao = (long)max((long)(log2(a+1)-2), 1L)/2;
+            be = (long)max((long)(log2(b+1)-1), 1L)/2;
+            bo = (long)max((long)(log2(b+1)-2), 1L)/2;
+            long t1 = ae*2, t2 = ao*2 + (int)(ao!=be);
+            cout << max (t1, t2) << endl;
         }
-        cout << max(l, r) << endl;
     }
     return 0;
 }
