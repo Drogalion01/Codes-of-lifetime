@@ -15,3 +15,4 @@ int main()
     else
         printf("Not armstrong");
 }
+//fasik
