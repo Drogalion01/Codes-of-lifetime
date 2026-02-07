@@ -5,30 +5,28 @@ void solve(){
     cin >> n >> m >> h;
     vector<long long> a(n);
     vector<long long> sec;
+    queue<long long> trc;
     for(auto& x : a) cin >> x;
     sec = a;
-    long long b[m][2], temp[n][2];
-    for(int i = 0; i < n; i++){
-        temp[i][0] = temp[i][1]= 0;
-    }
+    long long b[m][2];
+    bool res = false;
+    
     for(int i = 0; i < m; i++){
         cin >> b[i][0] >> b[i][1];
     }
-    // for(int i = 0; i < m; i++){
-    //     temp[b[i][0]][0]+=b[i][1];
-    //     temp[i][1] = b[i][0]-1;
-    // }
+
     for(int i = 0; i < m; i++){
-        if(sec[b[i][0]-1] + b[i][1] > h) sec = a;
-        else if(sec[b[i][0]-1] + b[i][1] <= h) sec[b[i][0]-1] += b[i][1];
-        if(sec[b[i][0]-1] > h) {
-            sec = a;
+        trc.push(i);
+        sec[b[i][0]-1] += b[i][1];
+        if(sec[b[i][0]-1] > h) res = true;
+        if(res){
+            while(!trc.empty()){
+                int temp = trc.front();
+                trc.pop();
+                sec[b[temp][0]-1] = a[b[temp][0]-1];
+            }
+            res = false;
         }
-        // cout << "t1: " ;
-        // for(int j = 0; j < n; j++){
-        //     cout << sec[j] << " ";
-        // }
-        // cout << endl;
     }
 
     for(int i = 0; i < n; i++){

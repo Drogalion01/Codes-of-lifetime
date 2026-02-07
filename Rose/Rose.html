@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day!! Mim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: 
+                radial-gradient(ellipse at 10% 0%, rgba(80, 100, 150, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 100%, rgba(100, 80, 160, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(60, 80, 120, 0.15) 0%, transparent 70%),
+                linear-gradient(160deg, 
+                    #0a0d14 0%, 
+                    #0f1520 15%,
+                    #141c2a 30%,
+                    #1a2438 45%,
+                    #141c2a 60%,
+                    #0f1520 80%,
+                    #0a0d14 100%);
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e8eaf0;
+            padding: 20px;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, rgba(200, 220, 255, 0.9), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(180, 200, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(220, 230, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(190, 210, 255, 0.6), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(210, 225, 255, 0.7), transparent),
+                radial-gradient(2px 2px at 200px 50px, rgba(180, 200, 250, 0.8), transparent),
+                radial-gradient(1px 1px at 250px 150px, rgba(200, 220, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 300px 100px, rgba(220, 235, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 350px 60px, rgba(190, 210, 255, 0.9), transparent),
+                radial-gradient(2px 2px at 400px 140px, rgba(180, 200, 255, 0.6), transparent);
+            background-size: 420px 180px;
+            animation: twinkle 8s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.4; transform: translateY(0); }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.5; transform: translateY(-5px); }
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, 
+                rgba(100, 140, 200, 0.06) 0%, 
+                rgba(80, 120, 180, 0.03) 40%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 35px;
+            margin: 20px auto;
+            z-index: 10;
+            background: linear-gradient(165deg, 
+                rgba(18, 25, 40, 0.94) 0%, 
+                rgba(25, 35, 55, 0.9) 50%,
+                rgba(15, 22, 35, 0.95) 100%);
+            border-radius: 32px;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 120px rgba(100, 150, 220, 0.04),
+                0 0 60px rgba(130, 170, 230, 0.03),
+                inset 0 1px 0 rgba(150, 180, 220, 0.08),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(130, 170, 220, 0.1);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(140, 180, 230, 0.3), 
+                rgba(170, 200, 250, 0.5),
+                rgba(140, 180, 230, 0.3),
+                transparent);
+            border-radius: 50%;
+        }
+        
+        .header {
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #7eb8da, #a8b4f0, #d4a5c9);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(140, 170, 220, 0.4);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #c8d8f0, #a8c0e8, #d4b8e0, #a8c0e8, #c8d8f0);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+            animation: shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 2px 10px rgba(140, 170, 220, 0.3));
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #a8c0e8, transparent);
+            border-radius: 1px;
+        }
+        
+        .subtitle {
+            color: #c8d4e8;
+            font-size: 1.35rem;
+            margin-top: 25px;
+            max-width: 700px;
+            line-height: 1.7;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 0 15px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        
+        .subtitle::before,
+        .subtitle::after {
+            content: '"';
+            font-size: 2.5rem;
+            color: #a8b8d8;
+            opacity: 0.5;
+            position: absolute;
+            line-height: 1;
+        }
+        
+        .subtitle::before {
+            top: -15px;
+            left: -10px;
+        }
+        
+        .subtitle::after {
+            content: '"';
+            bottom: -35px;
+            right: -10px;
+            transform: rotate(180deg);
+        }
+        
+        canvas {
+            background: linear-gradient(145deg, 
+                rgba(15, 20, 35, 0.96) 0%, 
+                rgba(22, 30, 50, 0.92) 50%,
+                rgba(12, 18, 30, 0.96) 100%);
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5),
+                        0 0 100px rgba(100, 150, 220, 0.04),
+                        inset 0 0 60px rgba(130, 170, 230, 0.02);
+            border: 1px solid rgba(130, 170, 220, 0.1);
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            margin: 25px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 5;
+            object-fit: contain;
+        }
+        
+        .wind-control {
+            margin-top: 25px;
+            background: rgba(250, 245, 238, 0.85);
+            border-radius: 22px;
+            padding: 28px;
+            display: inline-block;
+            width: 100%;
+            max-width: 580px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(220, 205, 190, 0.6);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .wind-control::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220, 180, 180, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .wind-control-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(190, 165, 150, 0.3);
+        }
+        
+        .wind-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #7a524a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .wind-title i {
+            color: #c17a7a;
+        }
+        
+        .wind-value-display {
+            background: rgba(220, 180, 180, 0.25);
+            width: 60px;
+            height: 36px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: #a45a5a;
+            font-size: 1.15rem;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        label {
+            display: block;
+            color: #6d574f;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-align: left;
+            padding-left: 5px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: linear-gradient(to right, 
+                #e8c9b9 0%, 
+                #d4a798 30%, 
+                #c17a7a 60%, 
+                #a45a5a 100%);
+            outline: none;
+            -webkit-appearance: none;
+            position: relative;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f8f4f1, #e8c9b9, #d4a798);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(164, 90, 90, 0.35),
+                        0 0 0 3px rgba(240, 230, 215, 0.9),
+                        0 0 0 6px #c17a7a;
+            border: 2px solid #fff;
+            transition: transform 0.2s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 15px rgba(164, 90, 90, 0.45),
+                        0 0 0 3px rgba(240, 230, 215, 0.95),
+                        0 0 0 6px #a45a5a;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(164, 90, 90, 0.4),
+                        0 0 0 3px rgba(240, 230, 215, 0.95),
+                        0 0 0 6px #c17a7a;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(190, 165, 150, 0.4);
+        }
+        
+        .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #a45a5a, #c17a7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin: 5px 0;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #7a524a;
+            font-weight: 500;
+        }
+        
+        .floating-petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .floating-petal {
+            position: absolute;
+            opacity: 0.85;
+            filter: blur(0.3px);
+            z-index: 0;
+            animation: float 25s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.85;
+            }
+            90% {
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .signature {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: #a8b8c8;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-top: 15px;
+            border-top: 1px solid rgba(140, 170, 220, 0.15);
+        }
+        
+        .signature i {
+            color: #a8c0e8;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                border-radius: 24px;
+                margin: 15px;
+            }
+            
+            h1 {
+                font-size: 2.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1.15rem;
+                margin-top: 20px;
+                padding: 0 10px;
+            }
+            
+            .subtitle::before,
+            .subtitle::after {
+                font-size: 2rem;
+            }
+            
+            canvas {
+                border-radius: 20px;
+                margin: 20px 0;
+            }
+            
+            .wind-control {
+                padding: 22px 15px;
+                border-radius: 20px;
+                max-width: 100%;
+            }
+            
+            .control-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .wind-title {
+                font-size: 1.4rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.05rem;
+                line-height: 1.6;
+            }
+            
+            canvas {
+                border-radius: 18px;
+            }
+            
+            .wind-control {
+                padding: 18px 10px;
+                border-radius: 18px;
+            }
+            
+            input[type="range"] {
+                height: 8px;
+            }
+            
+            input[type="range"]::-webkit-slider-thumb {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .stat-value {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* Bokeh floating particles */
+        .bokeh-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .bokeh {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatBokeh 25s infinite ease-in-out;
+            filter: blur(1px);
+        }
+        
+        .firefly {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 220, 255, 0.95) 0%, rgba(150, 180, 230, 0.5) 50%, transparent 70%);
+            animation: fireflyFloat 8s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(150, 180, 230, 0.7), 0 0 20px rgba(130, 170, 220, 0.4);
+        }
+        
+        @keyframes fireflyFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            30% {
+                transform: translate(calc(var(--moveX, 50px) * 0.3), calc(var(--moveY, -80px) * 0.3)) scale(1.3);
+            }
+            50% {
+                transform: translate(var(--moveX, 50px), var(--moveY, -80px)) scale(1.1);
+                opacity: 0.9;
+            }
+            70% {
+                transform: translate(calc(var(--moveX, 50px) * 1.3), calc(var(--moveY, -80px) * 1.2)) scale(0.9);
+            }
+            90% {
+                opacity: 0.6;
+            }
+        }
+        
+        @keyframes floatBokeh {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-30px) translateX(20px) scale(1.1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-10px) translateX(-15px) scale(0.95);
+                opacity: 0.4;
+            }
+            75% {
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.35;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bokeh particles for warm cozy ambiance -->
+    <div class="bokeh-container" id="bokehContainer"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Rose Day, Mim 💕</h1>
+            <p class="subtitle">May your life be as carefree and colorful as this Rose 🌹</p>
+        </div>
+        
+        <canvas id="roseCanvas" width="900" height="700"></canvas>
+        
+        <div class="signature">
+            <i class="fas fa-seedling"></i> A moment of tranquility in a digital garden
+        </div>
+    </div>
+    
+    <div class="floating-petals" id="floatingPetals"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create floating background petals
+            const floatingPetalsContainer = document.getElementById('floatingPetals');
+            const petalCount = 25;
+            
+            for (let i = 0; i < petalCount; i++) {
+                createFloatingPetal();
+            }
+            
+            function createFloatingPetal() {
+                const petal = document.createElement('div');
+                petal.classList.add('floating-petal');
+                
+                // Random petal size
+                const size = 8 + Math.random() * 20;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size * 1.2}px`;
+                
+                // Random position
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.top = `${100 + Math.random() * 20}%`;
+                
+                // Random color variations - night sky tones
+                const colors = [
+                    'rgba(180, 200, 240, 0.4)',
+                    'rgba(160, 180, 220, 0.35)',
+                    'rgba(200, 180, 220, 0.4)',
+                    'rgba(170, 190, 230, 0.35)',
+                    'rgba(190, 210, 240, 0.45)'
+                ];
+                petal.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random shape
+                petal.style.borderRadius = `${Math.random() * 40 + 20}% ${Math.random() * 40 + 20}% ${Math.random() * 40 + 20}% ${Math.random() * 40 + 20}%`;
+                
+                // Random animation duration and delay
+                const duration = 25 + Math.random() * 30;
+                const delay = Math.random() * 10;
+                petal.style.animationDuration = `${duration}s`;
+                petal.style.animationDelay = `${delay}s`;
+                
+                // Random starting rotation
+                petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                floatingPetalsContainer.appendChild(petal);
+                
+                // Remove and recreate after animation completes
+                setTimeout(() => {
+                    petal.remove();
+                    createFloatingPetal();
+                }, (duration + delay) * 1000);
+            }
+            
+            // Create cool blue bokeh particles
+            const bokehContainer = document.getElementById('bokehContainer');
+            const bokehCount = 15;
+            
+            for (let i = 0; i < bokehCount; i++) {
+                createBokeh();
+            }
+            
+            function createBokeh() {
+                const bokeh = document.createElement('div');
+                bokeh.classList.add('bokeh');
+                
+                // Random size
+                const size = 40 + Math.random() * 120;
+                bokeh.style.width = `${size}px`;
+                bokeh.style.height = `${size}px`;
+                
+                // Random position
+                bokeh.style.left = `${Math.random() * 100}%`;
+                bokeh.style.top = `${Math.random() * 100}%`;
+                
+                // Cool night sky gradient colors
+                const coolColors = [
+                    'radial-gradient(circle, rgba(130, 170, 230, 0.2) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(150, 140, 200, 0.18) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(170, 190, 240, 0.2) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(140, 160, 210, 0.15) 0%, transparent 70%)',
+                    'radial-gradient(circle, rgba(180, 170, 220, 0.18) 0%, transparent 70%)'
+                ];
+                bokeh.style.background = coolColors[Math.floor(Math.random() * coolColors.length)];
+                
+                // Random animation
+                const duration = 15 + Math.random() * 25;
+                const delay = Math.random() * 10;
+                bokeh.style.animationDuration = `${duration}s`;
+                bokeh.style.animationDelay = `${delay}s`;
+                
+                bokehContainer.appendChild(bokeh);
+            }
+            
+            // Create fireflies for magical ambiance
+            const fireflyCount = 20;
+            
+            for (let i = 0; i < fireflyCount; i++) {
+                createFirefly();
+            }
+            
+            function createFirefly() {
+                const firefly = document.createElement('div');
+                firefly.classList.add('firefly');
+                
+                // Random position
+                firefly.style.left = `${Math.random() * 100}%`;
+                firefly.style.top = `${20 + Math.random() * 70}%`;
+                
+                // Random size variation
+                const size = 2 + Math.random() * 4;
+                firefly.style.width = `${size}px`;
+                firefly.style.height = `${size}px`;
+                
+                // Random animation
+                const duration = 5 + Math.random() * 8;
+                const delay = Math.random() * 5;
+                firefly.style.animationDuration = `${duration}s`;
+                firefly.style.animationDelay = `${delay}s`;
+                
+                // Random movement direction
+                const moveX = (Math.random() - 0.5) * 150;
+                const moveY = -50 - Math.random() * 100;
+                firefly.style.setProperty('--moveX', `${moveX}px`);
+                firefly.style.setProperty('--moveY', `${moveY}px`);
+                
+                bokehContainer.appendChild(firefly);
+                
+                // Recreate firefly after animation
+                setTimeout(() => {
+                    firefly.remove();
+                    createFirefly();
+                }, (duration + delay) * 1000);
+            }
+            
+            // Canvas setup
+            const canvas = document.getElementById('roseCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size based on device
+            function resizeCanvas() {
+                if (window.innerWidth < 768) {
+                    canvas.width = Math.min(window.innerWidth - 40, 700);
+                    canvas.height = canvas.width * 0.78;
+                } else {
+                    canvas.width = 900;
+                    canvas.height = 700;
+                }
+            }
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            
+            // Wind control - Random between 30% and 60%
+            let windStrength = 0.4; // Start at 40%
+            let targetWindStrength = 0.4;
+            let windChangeTimer = 0;
+            const windChangeInterval = 3000; // Change wind every 3 seconds
+            
+            function updateRandomWind() {
+                // Randomly change target wind between 30% and 60%
+                targetWindStrength = 0.3 + Math.random() * 0.3;
+            }
+            
+            // Rose properties - SIDE VIEW ORIENTATION
+            let centerX = canvas.width / 2;
+            let centerY = canvas.height / 2 + 50;
+            const stemHeight = 280;
+            const budRadius = 45;
+            let swayAngle = 0;
+            let swaySpeed = 0.008;
+            let swayAmplitude = 0.18;
+            
+            // Petal properties - MORE REALISTIC
+            const totalPetals = 28;
+            let remainingPetals = totalPetals;
+            let fallenPetalsCount = 0;
+            let attachedPetals = [];
+            let fallingPetals = [];
+            let lastPetalTime = 0;
+            const minPetalInterval = 4000; // 4 seconds
+            const maxPetalInterval = 12000; // 12 seconds
+            
+            // Initialize attached petals with enhanced realism
+            function initPetals() {
+                attachedPetals = [];
+                remainingPetals = totalPetals;
+                fallenPetalsCount = 0;
+                
+                // Create layers of petals with more variation
+                const layers = [
+                    { count: 10, radius: 45, baseAngle: 0.35, sizeRange: [18, 22] },   // Inner layer
+                    { count: 12, radius: 75, baseAngle: 0.55, sizeRange: [24, 28] },   // Middle layer
+                    { count: 6, radius: 105, baseAngle: 0.75, sizeRange: [28, 34] }    // Outer layer
+                ];
+                
+                let petalIndex = 0;
+                layers.forEach((layer, layerIndex) => {
+                    for (let i = 0; i < layer.count; i++) {
+                        const angle = (i / layer.count) * Math.PI * 2;
+                        const randomness = 0.15;
+                        
+                        // More realistic petal colors with subtle variations
+                        const baseRed = 180 - layerIndex * 15;
+                        const baseGreen = 60 - layerIndex * 10;
+                        const baseBlue = 85 - layerIndex * 8;
+                        
+                        attachedPetals.push({
+                            id: petalIndex++,
+                            layer: layerIndex,
+                            angle: angle + (Math.random() - 0.5) * randomness,
+                            radius: layer.radius + (Math.random() - 0.5) * 8,
+                            baseAngle: layer.baseAngle + (Math.random() - 0.5) * 0.25,
+                            depth: Math.random() * 0.3 + 0.7 * (1 - layerIndex/3), // Better layering
+                            size: layer.sizeRange[0] + Math.random() * (layer.sizeRange[1] - layer.sizeRange[0]),
+                            color: {
+                                r: baseRed + Math.random() * 25,
+                                g: baseGreen + Math.random() * 20,
+                                b: baseBlue + Math.random() * 25,
+                                a: 0.95
+                            },
+                            curve: 0.35 + Math.random() * 0.45,
+                            rotation: Math.random() * Math.PI * 2,
+                            veinIntensity: 0.3 + Math.random() * 0.4,
+                            edgeDarkness: 0.2 + Math.random() * 0.3,
+                            textureWrinkles: Math.random() * 0.3 + 0.2
+                        });
+                    }
+                });
+            }
+            
+            // Create a falling petal with enhanced physics
+            function createFallingPetal(attachedPetal) {
+                // Calculate position on the rose - FRONT VIEW (center of canvas)
+                const roseX = centerX + Math.sin(swayAngle) * 10;
+                const roseY = centerY - 30 + Math.sin(swayAngle * 0.5) * 5;
+                
+                const x = roseX + Math.cos(attachedPetal.angle) * attachedPetal.radius;
+                const y = roseY + Math.sin(attachedPetal.angle) * attachedPetal.radius * 0.65;
+                
+                // Create falling petal with realistic physics
+                fallingPetals.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 15 + windStrength * 25, // Initial wind push
+                    vy: 2 + Math.random() * 4, // Falls downward
+                    rotation: attachedPetal.rotation + (Math.random() - 0.5) * 0.8,
+                    rotationSpeed: (Math.random() - 0.5) * 0.08,
+                    size: attachedPetal.size * (0.85 + Math.random() * 0.3),
+                    gravity: 0.12 + Math.random() * 0.08,
+                    windSway: Math.random() * Math.PI * 2,
+                    windSwaySpeed: 0.015 + Math.random() * 0.025,
+                    windSwayAmount: 0.8 + Math.random() * 1.8,
+                    airResistance: 0.97 + Math.random() * 0.025,
+                    color: {
+                        r: attachedPetal.color.r,
+                        g: attachedPetal.color.g,
+                        b: attachedPetal.color.b,
+                        a: 0.9
+                    },
+                    life: 1.0,
+                    maxLife: 10 + Math.random() * 6,
+                    startTime: Date.now(),
+                    curve: attachedPetal.curve * (0.8 + Math.random() * 0.5),
+                    // Add realistic fluttering
+                    flutterAngle: Math.random() * Math.PI * 2,
+                    flutterSpeed: 0.03 + Math.random() * 0.04,
+                    flutterAmount: 0.15 + Math.random() * 0.25,
+                    // Add drifting motion
+                    driftAngle: Math.random() * Math.PI * 2,
+                    driftSpeed: 0.005 + Math.random() * 0.01,
+                    driftAmount: 5 + Math.random() * 10
+                });
+                
+                // Update counters
+                fallenPetalsCount++;
+            }
+            
+            // Draw a single realistic petal with enhanced details
+            function drawPetal(ctx, x, y, size, rotation, curve, color, options = {}) {
+                const { veinIntensity = 0.4, edgeDarkness = 0.3, textureWrinkles = 0.3 } = options;
+                
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rotation);
+                
+                // Create gradient for realistic petal with soft edges
+                const gradient = ctx.createRadialGradient(0, -size * 0.8, 0, 0, -size * 1.8, size * 1.8);
+                gradient.addColorStop(0, `rgba(${color.r + 20}, ${color.g + 15}, ${color.b + 15}, ${color.a * 0.95})`);
+                gradient.addColorStop(0.3, `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a * 0.9})`);
+                gradient.addColorStop(0.7, `rgba(${color.r - 15}, ${color.g - 10}, ${color.b - 10}, ${color.a * 0.85})`);
+                gradient.addColorStop(1, `rgba(${color.r - 30}, ${color.g - 20}, ${color.b - 20}, ${color.a * 0.4})`);
+                
+                ctx.fillStyle = gradient;
+                ctx.strokeStyle = `rgba(${color.r - 25}, ${color.g - 15}, ${color.b - 15}, ${color.a * 0.85})`;
+                ctx.lineWidth = 1.8;
+                
+                // Draw petal shape with bezier curves - more organic
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                
+                // Right side of petal with subtle wrinkles
+                ctx.bezierCurveTo(
+                    size * 1.3 + Math.sin(textureWrinkles * 5) * 3, -size * 0.7 + Math.cos(textureWrinkles * 3) * 2,
+                    size * 2.0 + Math.sin(textureWrinkles * 7) * 4, -size * 1.9 * curve,
+                    size * 1.0 + Math.sin(textureWrinkles * 4) * 2, -size * 2.8
+                );
+                
+                // Tip of petal with natural curve
+                ctx.bezierCurveTo(
+                    size * 0.5, -size * 3.1,
+                    -size * 0.5, -size * 3.1,
+                    -size * 1.0 + Math.cos(textureWrinkles * 4) * 2, -size * 2.8
+                );
+                
+                // Left side of petal with subtle wrinkles
+                ctx.bezierCurveTo(
+                    -size * 2.0 + Math.sin(textureWrinkles * 7) * 4, -size * 1.9 * curve,
+                    -size * 1.3 + Math.cos(textureWrinkles * 3) * 3, -size * 0.7 + Math.sin(textureWrinkles * 2) * 2,
+                    0, 0
+                );
+                
+                ctx.closePath();
+                ctx.fill();
+                
+                // Add edge darkening for depth
+                ctx.save();
+                ctx.clip();
+                const edgeGradient = ctx.createLinearGradient(0, -size * 2.5, 0, 0);
+                edgeGradient.addColorStop(0, `rgba(0, 0, 0, 0)`);
+                edgeGradient.addColorStop(0.7, `rgba(0, 0, 0, 0)`);
+                edgeGradient.addColorStop(1, `rgba(30, 15, 15, ${edgeDarkness})`);
+                ctx.fillStyle = edgeGradient;
+                ctx.fill();
+                ctx.restore();
+                
+                // Draw outline with variable thickness
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(
+                    size * 1.3, -size * 0.7,
+                    size * 2.0, -size * 1.9 * curve,
+                    size * 1.0, -size * 2.8
+                );
+                ctx.bezierCurveTo(
+                    size * 0.5, -size * 3.1,
+                    -size * 0.5, -size * 3.1,
+                    -size * 1.0, -size * 2.8
+                );
+                ctx.bezierCurveTo(
+                    -size * 2.0, -size * 1.9 * curve,
+                    -size * 1.3, -size * 0.7,
+                    0, 0
+                );
+                ctx.closePath();
+                ctx.stroke();
+                
+                // Add subtle vein details with gradient
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(
+                    size * 0.4, -size * 1.0,
+                    size * 0.3, -size * 2.2
+                );
+                
+                const veinGradient = ctx.createLinearGradient(0, 0, size * 0.3, -size * 2.2);
+                veinGradient.addColorStop(0, `rgba(${color.r + 30}, ${color.g + 25}, ${color.b + 25}, 0)`);
+                veinGradient.addColorStop(0.4, `rgba(${color.r + 30}, ${color.g + 25}, ${color.b + 25}, ${veinIntensity * 0.4})`);
+                veinGradient.addColorStop(1, `rgba(${color.r + 30}, ${color.g + 25}, ${color.b + 25}, ${veinIntensity * 0.7})`);
+                
+                ctx.strokeStyle = veinGradient;
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(
+                    -size * 0.4, -size * 1.0,
+                    -size * 0.3, -size * 2.2
+                );
+                ctx.stroke();
+                
+                // Add subtle texture dots for velvety feel
+                ctx.fillStyle = `rgba(${color.r + 25}, ${color.g + 20}, ${color.b + 20}, ${0.15 + veinIntensity * 0.2})`;
+                for (let i = 0; i < 8; i++) {
+                    const tx = (Math.random() - 0.5) * size * 1.2;
+                    const ty = -size * 0.8 - Math.random() * size * 1.5;
+                    const dotSize = 0.8 + Math.random() * 1.2;
+                    
+                    ctx.beginPath();
+                    ctx.arc(tx, ty, dotSize, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.restore();
+            }
+            
+            // Draw the rose with enhanced details - SIDE FRONT VIEW
+            function drawRose() {
+                const now = Date.now();
+                // Side-front view: stem goes down-left, rose faces viewer
+                const stemBaseX = centerX - 30;
+                const stemBaseY = centerY + stemHeight * 0.4;
+                const baseX = centerX + Math.sin(swayAngle) * stemHeight * 0.2;
+                const baseY = centerY + Math.cos(swayAngle) * stemHeight * 0.1;
+                const budX = centerX + Math.sin(swayAngle) * 20;
+                const budY = centerY - 20 + Math.sin(swayAngle) * 10;
+                
+                // Draw soft shadow under rose
+                ctx.save();
+                ctx.fillStyle = 'rgba(40, 30, 30, 0.12)';
+                ctx.beginPath();
+                ctx.ellipse(centerX + 15, stemBaseY + 35, 100, 30, Math.PI/6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+                
+                // Draw stem with gradient and curvature - SIDE VIEW
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(stemBaseX, stemBaseY);
+                
+                // Control points for stem curvature - curved stem from bottom-left to center
+                const ctrlX1 = stemBaseX + 40 + Math.sin(swayAngle * 0.7) * 15;
+                const ctrlY1 = stemBaseY - stemHeight * 0.35;
+                const ctrlX2 = centerX - 20 + Math.sin(swayAngle) * 20;
+                const ctrlY2 = centerY + 30;
+                
+                ctx.bezierCurveTo(
+                    ctrlX1, ctrlY1,
+                    ctrlX2, ctrlY2,
+                    centerX, centerY
+                );
+                
+                // Stem gradient with more natural colors
+                const stemGradient = ctx.createLinearGradient(stemBaseX, stemBaseY, centerX, centerY);
+                stemGradient.addColorStop(0, '#2d5d3b');
+                stemGradient.addColorStop(0.3, '#3a6e4a');
+                stemGradient.addColorStop(0.7, '#4a7a5a');
+                stemGradient.addColorStop(1, '#558565');
+                
+                ctx.strokeStyle = stemGradient;
+                ctx.lineWidth = 12;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                
+                // Add texture to stem
+                ctx.strokeStyle = 'rgba(30, 60, 40, 0.25)';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 3]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Add thorns to stem with better detail - along curved stem
+                ctx.fillStyle = '#2a4d33';
+                for (let i = 0.25; i < 0.85; i += 0.2) {
+                    // Interpolate position along the bezier curve
+                    const t = i;
+                    const thornX = stemBaseX + (centerX - stemBaseX) * t + Math.sin(swayAngle * 0.5) * 10 * t;
+                    const thornY = stemBaseY + (centerY - stemBaseY) * t - Math.sin(t * Math.PI) * 40;
+                    const thornSize = 6 + Math.sin(i * 10) * 2;
+                    const thornAngle = Math.PI * 0.7 + swayAngle * 0.3 + (i % 2 === 0 ? 0.3 : -0.3);
+                    
+                    ctx.save();
+                    ctx.translate(thornX, thornY);
+                    ctx.rotate(thornAngle);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(-thornSize/2, thornSize * 1.2);
+                    ctx.lineTo(thornSize/2, thornSize * 1.2);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    ctx.restore();
+                }
+                
+                ctx.restore();
+                
+                // Draw leaves with enhanced realism - along stem
+                const leafCount = 3;
+                for (let i = 0; i < leafCount; i++) {
+                    const t = 0.3 + (i * 0.25);
+                    const leafX = stemBaseX + (centerX - stemBaseX) * t + Math.sin(swayAngle * 0.5) * 8 * t;
+                    const leafY = stemBaseY + (centerY - stemBaseY) * t - Math.sin(t * Math.PI) * 35;
+                    const leafSize = 18 + Math.sin(t * Math.PI) * 10;
+                    const leafAngle = Math.PI * 0.3 + swayAngle * 0.2 + Math.sin(now * 0.0009 + i * 2) * 0.06;
+                    const leafLayer = i % 2 === 0 ? 1 : -1;
+                    
+                    ctx.save();
+                    ctx.translate(leafX, leafY);
+                    ctx.rotate(leafAngle * leafLayer);
+                    
+                    // Leaf gradient with vein details
+                    const leafGradient = ctx.createLinearGradient(-leafSize, 0, leafSize, 0);
+                    leafGradient.addColorStop(0, '#2a5535');
+                    leafGradient.addColorStop(0.45, '#3a6e4a');
+                    leafGradient.addColorStop(0.55, '#356545');
+                    leafGradient.addColorStop(1, '#2a5535');
+                    
+                    ctx.fillStyle = leafGradient;
+                    
+                    // Draw leaf shape with asymmetry
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.quadraticCurveTo(
+                        leafSize * 1.8, -leafSize * 0.3,
+                        leafSize * 1.5, -leafSize * 1.4
+                    );
+                    ctx.quadraticCurveTo(
+                        leafSize * 0.7, -leafSize * 1.1,
+                        leafSize * 0.8, -leafSize * 0.4
+                    );
+                    ctx.quadraticCurveTo(
+                        leafSize * 0.9, leafSize * 0.6,
+                        0, leafSize * 0.3
+                    );
+                    ctx.quadraticCurveTo(
+                        -leafSize * 0.9, leafSize * 0.6,
+                        -leafSize * 0.8, -leafSize * 0.4
+                    );
+                    ctx.quadraticCurveTo(
+                        -leafSize * 0.7, -leafSize * 1.1,
+                        -leafSize * 1.5, -leafSize * 1.4
+                    );
+                    ctx.quadraticCurveTo(
+                        -leafSize * 1.8, -leafSize * 0.3,
+                        0, 0
+                    );
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Leaf vein structure
+                    ctx.strokeStyle = 'rgba(30, 70, 45, 0.75)';
+                    ctx.lineWidth = 1.8;
+                    ctx.lineJoin = 'round';
+                    
+                    // Central vein
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.quadraticCurveTo(0, -leafSize * 0.2, 0, -leafSize * 1.3);
+                    ctx.stroke();
+                    
+                    // Side veins
+                    for (let v = -0.7; v <= 0.7; v += 0.35) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, -leafSize * 0.5 * Math.abs(v));
+                        ctx.quadraticCurveTo(
+                            leafSize * 0.8 * v, -leafSize * 0.7,
+                            leafSize * 1.2 * v, -leafSize * 1.0
+                        );
+                        ctx.stroke();
+                    }
+                    
+                    // Leaf highlight
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                    ctx.beginPath();
+                    ctx.ellipse(leafSize * 0.3, -leafSize * 0.4, leafSize * 0.25, leafSize * 0.35, Math.PI/4, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.restore();
+                }
+                
+                // Draw bud (center of rose) - FRONT VIEW at center
+                const roseCenterX = centerX + Math.sin(swayAngle) * 10;
+                const roseCenterY = centerY - 30 + Math.sin(swayAngle * 0.5) * 5;
+                
+                ctx.save();
+                ctx.translate(roseCenterX, roseCenterY);
+                ctx.rotate(swayAngle * 0.3);
+                
+                // Bud gradient with multiple stops for realism
+                const budGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, budRadius * 1.1);
+                budGradient.addColorStop(0, '#f0d0c5');
+                budGradient.addColorStop(0.2, '#e8b8b0');
+                budGradient.addColorStop(0.5, '#d49a91');
+                budGradient.addColorStop(0.8, '#c17a7a');
+                budGradient.addColorStop(1, '#a45a5a');
+                
+                ctx.fillStyle = budGradient;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, budRadius * 1.05, budRadius * 1.35, 0.2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Bud texture - subtle wrapping effect
+                ctx.strokeStyle = 'rgba(150, 80, 80, 0.25)';
+                ctx.lineWidth = 2;
+                for (let i = 0.3; i < 1; i += 0.2) {
+                    ctx.beginPath();
+                    ctx.ellipse(0, -budRadius * 0.2, budRadius * i * 0.9, budRadius * i * 1.1, 0.3, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+                
+                // Bud highlight
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+                ctx.beginPath();
+                ctx.ellipse(-budRadius * 0.35, -budRadius * 0.3, budRadius * 0.35, budRadius * 0.45, 0.2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Bud center detail
+                ctx.fillStyle = 'rgba(220, 150, 150, 0.4)';
+                ctx.beginPath();
+                ctx.arc(0, -budRadius * 0.1, budRadius * 0.25, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+                
+                // Draw attached petals (back to front) with enhanced layering - FRONT VIEW
+                attachedPetals.sort((a, b) => a.depth - b.depth);
+                
+                // Petals are drawn around the center (facing viewer)
+                const roseX = centerX + Math.sin(swayAngle) * 10;
+                const roseY = centerY - 30 + Math.sin(swayAngle * 0.5) * 5;
+                
+                attachedPetals.forEach(petal => {
+                    // Petal position with natural sway and breathing motion
+                    const breathFactor = Math.sin(now * 0.0015 + petal.id * 0.3) * 0.03;
+                    const petalSway = Math.sin(now * 0.0025 + petal.id * 0.2) * 0.12 * windStrength;
+                    const petalAngle = petal.angle + petalSway;
+                    
+                    const x = roseX + Math.cos(petalAngle) * (petal.radius + breathFactor * 30);
+                    const y = roseY + Math.sin(petalAngle) * (petal.radius * 0.65 + breathFactor * 20);
+                    const rotation = petal.rotation + swayAngle * 0.4 + Math.sin(now * 0.002 + petal.id * 0.5) * 0.08 * windStrength;
+                    
+                    // Subtle size breathing
+                    const sizeFactor = 1 + breathFactor * 0.15;
+                    
+                    drawPetal(
+                        ctx, 
+                        x, 
+                        y, 
+                        petal.size * sizeFactor, 
+                        rotation, 
+                        petal.curve, 
+                        petal.color,
+                        {
+                            veinIntensity: petal.veinIntensity,
+                            edgeDarkness: petal.edgeDarkness,
+                            textureWrinkles: petal.textureWrinkles + now * 0.0001
+                        }
+                    );
+                });
+            }
+            
+            // Update and draw falling petals with enhanced physics
+            function updateFallingPetals(deltaTime) {
+                const now = Date.now();
+                
+                for (let i = fallingPetals.length - 1; i >= 0; i--) {
+                    const petal = fallingPetals[i];
+                    const elapsed = (now - petal.startTime) / 1000;
+                    
+                    // Update wind sway with turbulence
+                    petal.windSway += petal.windSwaySpeed * deltaTime * 60;
+                    petal.flutterAngle += petal.flutterSpeed * deltaTime * 60;
+                    petal.driftAngle += petal.driftSpeed * deltaTime * 60;
+                    
+                    // Apply wind force with turbulence and drifting
+                    const windTurbulence = Math.sin(petal.windSway * 3) * petal.windSwayAmount * windStrength;
+                    const flutterEffect = Math.sin(petal.flutterAngle) * petal.flutterAmount * (1 - elapsed/petal.maxLife);
+                    const driftEffect = Math.sin(petal.driftAngle) * petal.driftAmount;
+                    
+                    petal.vx += (windTurbulence + driftEffect + (windStrength * 20 - petal.vx) * 0.07) * deltaTime * 60;
+                    
+                    // Apply gravity and air resistance
+                    petal.vy += petal.gravity * deltaTime * 60;
+                    petal.vx *= Math.pow(petal.airResistance, deltaTime * 60);
+                    
+                    // Update position
+                    petal.x += (petal.vx + flutterEffect) * deltaTime * 60;
+                    petal.y += petal.vy * deltaTime * 60;
+                    
+                    // Update rotation with turbulence and flutter
+                    petal.rotation += (petal.rotationSpeed + Math.sin(elapsed * 3) * 0.05 + flutterEffect * 0.02) * deltaTime * 60;
+                    
+                    // Fade out as life decreases with non-linear curve
+                    petal.life = Math.max(0, 1 - (elapsed / petal.maxLife) ** 0.7);
+                    petal.color.a = 0.9 * petal.life * (0.6 + windStrength * 0.4);
+                    
+                    // Draw petal with perspective scaling and tilting
+                    const scale = 0.7 + petal.life * 0.7;
+                    const tilt = Math.sin(petal.flutterAngle * 2) * 0.2 * (1 - elapsed/petal.maxLife);
+                    
+                    ctx.save();
+                    ctx.translate(petal.x, petal.y);
+                    ctx.scale(scale, scale * (0.85 + Math.sin(elapsed * 2.5) * 0.12));
+                    ctx.rotate(petal.rotation + tilt);
+                    
+                    drawPetal(ctx, 0, 0, petal.size, 0, petal.curve, petal.color, {
+                        veinIntensity: 0.5,
+                        edgeDarkness: 0.4,
+                        textureWrinkles: 0.4
+                    });
+                    ctx.restore();
+                    
+                    // Remove if dead or out of bounds
+                    if (petal.life <= 0.05 || petal.y > canvas.height + 100 || petal.x < -100 || petal.x > canvas.width + 100) {
+                        fallingPetals.splice(i, 1);
+                    }
+                }
+            }
+            
+            // Draw ambient particles for atmosphere
+            function drawAmbientParticles() {
+                const particleCount = 15;
+                const now = Date.now();
+                
+                ctx.fillStyle = 'rgba(220, 190, 180, 0.65)';
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const t = (now * 0.0003 + i * 1000) % (Math.PI * 2);
+                    const radius = 1.5 + Math.sin(t * 2) * 0.8;
+                    const x = centerX + Math.cos(t * 0.7) * 200 * (0.4 + i/particleCount);
+                    const y = centerY - stemHeight * 0.8 + Math.sin(t * 0.5) * 150 * (0.3 + i/particleCount * 0.7);
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            // Main animation loop
+            let lastTime = 0;
+            function animate(time) {
+                const deltaTime = (time - lastTime) / 1000;
+                lastTime = time;
+                
+                // Update center position based on canvas size
+                centerX = canvas.width / 2;
+                centerY = canvas.height / 2 + 50;
+                
+                // Update random wind (smoothly transition to target)
+                windChangeTimer += deltaTime * 1000;
+                if (windChangeTimer > windChangeInterval) {
+                    updateRandomWind();
+                    windChangeTimer = 0;
+                }
+                // Smoothly interpolate wind strength
+                windStrength += (targetWindStrength - windStrength) * 0.02;
+                
+                // Clear canvas with soft gradient background
+                const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                bgGradient.addColorStop(0, '#fdf9f5');
+                bgGradient.addColorStop(0.4, '#f8f3ed');
+                bgGradient.addColorStop(1, '#f5efe7');
+                ctx.fillStyle = bgGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw ambient particles
+                drawAmbientParticles();
+                
+                // Update wind sway for the whole rose with breathing motion
+                const breathFactor = Math.sin(time * 0.0007) * 0.05;
+                swayAmplitude = 0.15 + windStrength * 0.35 + breathFactor * 0.1;
+                swayAngle = Math.sin(time * 0.0009) * swayAmplitude * (0.7 + windStrength * 1.8) + breathFactor * 0.15;
+                
+                // Draw the rose
+                drawRose();
+                
+                // Update and draw falling petals
+                updateFallingPetals(deltaTime);
+                
+                // Randomly detach petals with wind influence
+                if (attachedPetals.length > 8 && time - lastPetalTime > minPetalInterval) {
+                    // Higher wind strength increases petal fall chance
+                    const fallProbability = 0.01 + windStrength * 0.08;
+                    
+                    if (Math.random() < fallProbability || time - lastPetalTime > maxPetalInterval) {
+                        // Select a petal to detach (prefer outer petals with some randomness)
+                        const detachIndex = Math.floor(
+                            Math.random() * attachedPetals.length * 0.6 + 
+                            Math.random() * attachedPetals.length * 0.4
+                        );
+                        
+                        if (detachIndex < attachedPetals.length) {
+                            createFallingPetal(attachedPetals[detachIndex]);
+                            attachedPetals.splice(detachIndex, 1);
+                            remainingPetals--;
+                            lastPetalTime = time;
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Initialize and start animation
+            initPetals();
+            requestAnimationFrame(animate);
+        });
+    </script>
+</body>
+</html>
