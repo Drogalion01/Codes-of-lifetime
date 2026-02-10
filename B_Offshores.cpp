@@ -11,7 +11,7 @@ void solve(){
         s+=(a[i]/x) * y;
     }
     long long fi = 0, mx = 0;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++) {
         fi = s - (a[i]/x) * y + a[i];
         mx = max(mx, fi);
     }

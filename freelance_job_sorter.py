@@ -80,14 +80,30 @@ def scrape_upwork(driver, query):
     driver.get(url)
     time.sleep(5)  # Wait for JS to load
     
+    # DEBUG: Print status
+    print(f"  > Current URL: {driver.current_url}")
+    print(f"  > Page Title: {driver.title}")
+
     jobs_data = []
     
     try:
         soup = BeautifulSoup(driver.page_source, 'html.parser')
+        
+        # Debug: Save HTML if empty (only for the first failure to avoid spam)
+        if "Access Denied" in driver.title or "Just a moment" in driver.title:
+             print("  > BLOCKED by Cloudflare/Anti-bot.")
+        
         # Upwork class names change frequently. We look for structural elements usually sections or articles.
         # This is an approximation based on common Upwork structures.
         job_cards = soup.find_all('section', attrs={'data-test': 'JobTile'})
         
+        # Fallback selector if the above finds nothing
+        if not job_cards:
+             # Try finding articles with specific classes often used
+             job_cards = soup.find_all('article')
+        
+        print(f"  > Found {len(job_cards)} potential job cards.")
+
         for card in job_cards:
             try:
                 title_elem = card.find('h2')
