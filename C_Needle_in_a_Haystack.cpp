@@ -3,10 +3,9 @@ using namespace std;
 void solve(){
     string s, t;
     cin >> s >> t;
-    cin.ignore();
     string fi(t.size(), ' ');
     sort (t.begin(), t.end());
-    // cout << t << endl;
+    cout << t << endl;
     vector<int>alps(26, 0), alpt(26, 0);
     for(int i = 0; i < s.size(); i++){
         alps[s[i]-97]++;
@@ -45,32 +44,21 @@ void solve(){
         }
         else
         {
-            if(i+k >= t.size()) break;
-            int res = i+k;
-            while(i+k < t.size() && t[i+k] == t[res] && j < s.size()){
-                k++;
-            }
-            
-            if (i+k >= t.size()) {
-                fi[i] = s[j];
-                alpt[s[j]-97]--; 
-                alps[s[j]-97]--;
-                j++;
-                k--;
-            } else {
+            k = alpt[t[i+k]-97] + 1;
+
                 fi[i] = t[i+k];
                 alpt[fi[i]-97]--;
                 if (j < s.size() && t[i+k] == s[j]) {
                     alps[s[j]-97]--;
                     j++;
-                }
             }
         }
         // cout << "k :" << k  << " ";    
     }
     // cout << endl;
-    cout << fi << endl;
+    // cout << fi << endl;
 }
+
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
