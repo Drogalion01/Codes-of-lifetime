@@ -11,9 +11,10 @@ void solve(){
     }
     int c = 0;
     for(int i = 0; i < n-1; i++){
-        if(adj[i] == 7 || a[i] == a[i+1]) c++;
-        if(adj[i] == 7 && a[i] == a[i+1]) c--;
-        if(i && adj[i] == adj[i-1] == 7) c--;
+        if(adj[i] == 7 || a[i] == a[i+1]){
+            c++;
+            i++;
+        }   
     }
     cout << c << endl;
 }
