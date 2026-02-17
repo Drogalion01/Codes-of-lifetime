@@ -3,9 +3,18 @@ using namespace std;
 void solve(){
     long long x;
     cin >> x;
-    int r = x/9;
-    if (x%9 == 0 && (r+1)%11 != 0) cout << "10" << endl;
-    else cout << "0" << endl;
+    for(int i = 0; i < 82; i++){
+        long long y = x + i, d = 0;
+        while(y){
+            d = y%10;
+            y/=10;
+        }
+        if(d == i) {
+            cout << "10" << endl;
+            return;
+        }
+    }
+    cout << "0" << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
