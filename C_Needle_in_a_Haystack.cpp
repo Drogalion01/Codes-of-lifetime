@@ -5,7 +5,7 @@ void solve(){
     cin >> s >> t;
     string fi(t.size(), ' ');
     sort (t.begin(), t.end());
-    cout << t << endl;
+    // cout << t << endl;
     vector<int>alps(26, 0), alpt(26, 0);
     for(int i = 0; i < s.size(); i++){
         alps[s[i]-97]++;
@@ -19,44 +19,37 @@ void solve(){
             return;
         }
     }
-    int j = 0, k = 0;
+    int k = 0;
+    bool check = false;
     for(int i = 0; i < fi.size(); i++){
-        // cout << "t1 :" << alpt[t[i+k]-97] << " " << alps[t[i+k]-97]  << " ";   
-        if(j < s.size() && i+k < t.size() && t[i+k] < s[j] && alpt[t[i+k]-97] > alps[t[i+k]-97]){
-            fi[i] = t[i+k];
-            alpt[t[i+k]-97]--;
-        }
-        else if (j < s.size() && i+k < t.size() && t[i+k] == s[j]) {
-            fi[i] = t[i+k];
-            alpt[t[i+k]-97]--;
-            alps[s[j]-97]--;
-            j++;
-        }
-        else if(j < s.size() && (i+k >= t.size() || t[i+k] > s[j])){
-            fi[i] = s[j];
-            alpt[s[j]-97]--;
-            alps[s[j]-97]--;
-            j++;
-            k--;
-        }
-        else if(j >= s.size()){
-            fi[i] = t[i];
-        }
-        else
-        {
-            k = alpt[t[i+k]-97] + 1;
-
-                fi[i] = t[i+k];
-                alpt[fi[i]-97]--;
-                if (j < s.size() && t[i+k] == s[j]) {
-                    alps[s[j]-97]--;
-                    j++;
+        for(int j = 0; j < 26; j++){
+            char tmp = (char) j+97;  
+            // cout << "c: " << tmp << " " << alpt[j] << " " << alps[j] << " "<< s[k] << endl;     
+            if(alpt[j] && alpt[j] > alps[j] ){
+                fi[i] = tmp;
+                alpt[j]--;
+                if(tmp == s[k] && k < s.size()){
+                    alps[j]--;
+                    k++;
+                }
+                break;
             }
+            
+            if(alpt[j] && alpt[j] == alps[j] && k < s.size() && s[k] <= tmp){
+                    fi[i] = s[k];
+                    alpt[j]--;
+                    alps[j]--;
+                    k++;
+                    // check = true;
+                    break;
+            }
+            
+            // if(i==fi.size()-1) break;
         }
-        // cout << "k :" << k  << " ";    
+        // if(i && !check) i--;
+        // cout << fi << endl;
     }
-    // cout << endl;
-    // cout << fi << endl;
+    cout << fi << endl;
 }
 
 int main(){

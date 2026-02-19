@@ -12,13 +12,12 @@ void solve(){
         idx[x-1] = m;
         m++;
     }
-    vector<vector<int>> t(n, vector<int>(2));
+    vector<int> t(n);
     m = 0;
     for(int i = 0; i<n; i++) {
         cin >> a[i];
-        if(m && t[m-1][1] == t[m][1]) continue;
-        t[m][0] = i;
-        t[m][1] = a[i];
+        if(m && t[m-1] == t[m]) continue;
+        t[m] = a[i];
         m++;
     }
 
@@ -33,16 +32,16 @@ void solve(){
         rec[a[i]-1]++;
     }
 
-    sort(t.begin(), t.end());
+    // sort(t.begin(), t.end());
     
     bool g = true;
-    int seq = idx[t[0][1]-1];
+    int seq = idx[t[0]-1];
     for(int i = 1; i < t.size(); i++){
-        if(seq > idx[t[i][1]-1]) {
+        if(seq > idx[t[i]-1]) {
             cout << "NO" << endl;
             return;
         }
-        seq = idx[t[i][1]-1];
+        seq = idx[t[i]-1];
     }
     cout << "YES" << endl;
 }

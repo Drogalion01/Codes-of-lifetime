@@ -3,10 +3,10 @@ using namespace std;
 void solve(){
     long long x;
     cin >> x;
-    for(int i = 0; i < 82; i++){
+    for(int i = 0; i <= 81; i++){
         long long y = x + i, d = 0;
         while(y){
-            d = y%10;
+            d += y%10;
             y/=10;
         }
         if(d == i) {
