@@ -4,66 +4,67 @@ void solve(){
     long long n, h, k;
     cin >> n >> h >> k;
     vector <long long> a(n);
+    vector <long long> tmp(n);
     for(auto& x : a) cin >> x;
-    auto it1 = max_element(a.begin(), a.end());
-    auto it2 = min_element(a.begin(), a.end());
-    long long mx = *it1, mn = *it2, idx, idn;
+    tmp = a;
+    for(int i = 0; i <= n/2; i++){
+        auto it1 = max_element(tmp.begin(), tmp.end());
+        auto it2 = min_element(tmp.begin(), tmp.end());
+
+        long long mx = *it1, mn = *it2, idx = it1-tmp.begin(), idn = it2 - tmp.begin();
     
-    for(int i = 0; i < n; i++){
-        if(a[i] == *it1){
-            a[i] = mn;
-            idx = i;
+        if(idx >= idn && mx && mn) {
+            a[idx] = mn;
+            a[idn] = mx;
             break;
         }
-    }
-
-    for(int i = 0; i < n; i++){
-        if(a[i] == *it2 && i != idx){
-            a[i] = mx;
-            break;
+        else {
+            tmp[idx] = 0;
+            tmp[idn] = 0;
         }
     }
-    for(auto x : a) cout << x << " ";
-    cout << endl;
-    // vector<long long> pref(n+1, 0);
-    // for(int i = 0; i < n; i++){
-    //     pref[i+1] = pref[i] + a[i];
-    // }
-    // if(pref[n] < h && h % pref[n]){
-    //     long long t = (h/pref[n])*(n+k);
+    
+    
+    // for(auto x : a) cout << x << " ";
+    // cout << endl;
+    vector<long long> pref(n+1, 0);
+    for(int i = 0; i < n; i++) {
+        pref[i+1] = pref[i] + a[i];
+    }
+    // for(auto x : pref) cout << x << " ";
+    // cout << endl;
 
-    //     h %= pref[n];
-    //     long long i = 1;
-    //     while(h > 0 && i < n+1){
-    //         h-=pref[i];
-    //         i++;
-    //         t++;
-    //     }
-    //     cout << t << endl;
-    //     return;
-    // }
-    // if(h % pref[n] == 0){
-    //     if(pref[n] == h) {
-    //         cout << n << endl;
-    //         return;
-    //     }
-    //     else {
-    //         long long t = (h/pref[n])*(n+k) - k;
-    //         cout << t << endl;
-    //         return;
-    //     }
-    // }
-    // if(h < pref[n]){
-    //     long long t = 0, i = 1;
-    //     while(h > 0 && i < n+1){
-    //         h-=pref[i];
-    //         i++;
-    //         t++;
-    //     }
-    //     cout << t << endl;
-    //     return;
-    // }
+    if(pref[n] < h && h % pref[n]){
+        long long t = (h/pref[n])*(n+k);
 
+        h %= pref[n];
+        long long i = 1;
+        while(i < n+1){
+            t++;
+            if(h - pref[i] <= 0) break;
+            i++;
+        }
+        cout << t << endl;
+        // cout << "1" << endl;
+        return;
+    }
+    else if(h >= pref[n] && h % pref[n] == 0){
+            long long t = (h/pref[n])*(n+k) - k;
+            cout << t << endl;
+            // cout << "2" << endl;
+            return;
+    }
+    else if(h < pref[n]){
+        long long t = 0, i = 1;
+        while(i < n+1){
+            t++;
+            if(h - pref[i] <= 0) break;
+            i++;
+        }
+        cout << t << endl;
+        // cout << "3" << endl;
+        return;
+    }
 }
 int main(){
     ios::sync_with_stdio(false);
