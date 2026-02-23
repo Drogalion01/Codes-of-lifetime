@@ -6,21 +6,21 @@ void solve(){
     string s;
     cin >> s;
     for(int i = 0; i < q; i++){
-        long long a, k = 0, cnt = 0;
+        long long a, cnt = 0, tmp;
         cin >> a;
-        while(1) {
-            cnt++;
-            if(s[k] == 'A'){
-                a-=1;
+        tmp = a;
+        for(int j = 0; j < n; j++){
+            if(s[j] == 'A') tmp -= 1;
+            else tmp /= 2;
+            if(tmp <= 0) {
+                cnt = j+1;
+                break;
             }
-            else if(s[k] == 'B') {
-                a/=2;
-            }
-            if(a<=0) break;
-            k++;
-            if(k == n) k = 0;
         }
-        cout << cnt << endl;
+        if(cnt) {
+            cout << cnt << endl;
+            continue;
+        }
     }
 }
 int main(){
