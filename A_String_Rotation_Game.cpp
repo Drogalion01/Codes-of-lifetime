@@ -5,7 +5,6 @@ void solve(){
     cin >> n;
     string s;
     cin >> s;
-    vector<int> a(26, 0);
     int cnt = 1, sm = 0;
     
     for(int i = 0; i < n-1; i++){
