@@ -24,6 +24,7 @@ void solve(){
             return;
         }
     }
+
     
     if(2*k <= o) {
         int i = 0, t0 = z, t1;
