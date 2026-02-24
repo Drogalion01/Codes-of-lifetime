@@ -5,22 +5,46 @@ void solve(){
     cin >> n >> q ;
     string s;
     cin >> s;
+    vector<int>seq;
+    int t = 0;
+    for(int i = 0; i < s.size(); i++){
+        if (s[i] == 'A') {
+            t++;
+        }
+        else {
+            if(t) {
+                seq.push_back(t);
+                t = 0;
+            }
+            seq.push_back(0);
+        }
+    }
+    if(t) seq.push_back(t);
+
+    // for(auto& x : seq) cout << x << " ";
+    // cout << endl;
+
     for(int i = 0; i < q; i++){
-        long long a, cnt = 0, tmp;
+        long long a, k = 0, cnt = 0;
         cin >> a;
-        tmp = a;
-        for(int j = 0; j < n; j++){
-            if(s[j] == 'A') tmp -= 1;
-            else tmp /= 2;
-            if(tmp <= 0) {
-                cnt = j+1;
+        while(a>0) {
+            if(count(s.begin(), s.end(), 'B') == 0) {
+                cnt = a;
                 break;
             }
+            else if(seq[k] == 0){
+                a/=2;
+                cnt++;
+            }
+            else {
+                a -= seq[k];
+                if(a >= 0) cnt += seq[k];
+                else cnt += seq[k] + a;
+            }
+            k++;
+            if(k == seq.size()) k = 0;
         }
-        if(cnt) {
-            cout << cnt << endl;
-            continue;
-        }
+        cout << cnt << endl;
     }
 }
 int main(){
