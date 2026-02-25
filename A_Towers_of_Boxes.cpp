@@ -1,15 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 void solve(){
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-
-    int z = count(s.begin(), s.end(), '0'), o = count(s.begin(), s.end(), '1');
-
-    if(o >= (n + 2)/3) cout << o << endl;
-    else cout << (n + 2)/3 << endl;
+    int n, m, d;
+    cin >> n >> m >> d;
+    
+    int tmp = d/m + 1;
+    if(m > d) cout << n << endl;
+    else {
+        cout << n / tmp + min(n % tmp, 1) << endl;
+    }
 }
 int main(){
     ios::sync_with_stdio(false);
