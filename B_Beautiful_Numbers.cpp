@@ -24,7 +24,6 @@ void solve(){
             if(sum <= 9) c1++;
             else break;
         }
-
         sum = 0;
         if(s[0] != '1') {
             s[0] = '1';
