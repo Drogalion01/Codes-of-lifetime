@@ -12,7 +12,6 @@ void solve(){
 
     if(tmp > 1) k*=tmp;
     cout << k << endl;
-
 }
 int main(){
     ios::sync_with_stdio(false);
