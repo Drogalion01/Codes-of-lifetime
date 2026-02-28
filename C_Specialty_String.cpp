@@ -7,16 +7,6 @@ void solve(){
     cin >> s;
     if(n == 1) cout << "NO" << endl;
     else {
-        // vector<int>alp(26, 0);;
-        // for(int i = 0; i < n; i++){
-        //     alp[s[i] - 'a']++;
-        // }
-        // for(int i = 0; i < 26; i++){
-        //     if(alp[i] != 0 && alp[i]%2 != 0) {
-        //         cout << "NO" << endl;
-        //         return;
-        //     }
-        // }
         vector <char> tmp (s.begin(), s.end());
         bool f = false;
         while(!tmp.empty()) {
