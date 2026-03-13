@@ -9,7 +9,7 @@ int main(){
     for(long long j = n; j >= 5; j--){
         for(long long i = 3; i*i <= ((j*j)+1)/2; i++){
             long long sq = j*j - i*i;
-            int tmp = (int) sqrt(sq);
+            int tmp = sqrt(sq);
             if(tmp*tmp == sq) {
                 cnt++;
             }
