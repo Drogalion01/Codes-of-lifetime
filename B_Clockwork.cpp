@@ -10,7 +10,7 @@ void solve(){
         tmp[i].first = a[i];
         tmp[i].second = i+1;
     }
-    sort(tmp.begin(), tmp.end());\
+    sort(tmp.begin(), tmp.end());
     // for(int i = 0; i < n; i++){
     //     cout << tmp[i].first << " " << tmp[i].second << endl;
     // }

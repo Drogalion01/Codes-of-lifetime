@@ -1,7 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 void solve(){
+    int n, k, p, m;
+    cin >> n >> k >> p >> m;
+    vector<int> a(n);
+    for(auto& x : a) cin >> x;
     
+
 }
 int main(){
     ios::sync_with_stdio(false);

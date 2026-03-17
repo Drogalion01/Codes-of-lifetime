@@ -16,6 +16,9 @@ void solve(){
             break;
         }
     }
+    for(int i = 0; i < n; i++){
+        
+    }
     cout << min (mex, k-1) << endl;    
 }
 int main(){

@@ -5,39 +5,12 @@ void solve(){
     cin >> n;
     string s;
     cin >> s;
-    int cnt = 0;
-    char tmp = ' ';
-    string tz(n, ' '), to(n, ' ');
-    int c1 = 0, c0 = 1, c00 = 2;
-    for(int i = 0; i < n; i++){
-        if(i == c1) {
-            to[i] = '1';
-            tz[i] = '0';
-            c1+=3;
-        }
-        else if (i == c0) {
-            to[i] = '0';
-            tz[i] = '1';
-            c0+=3;
-        }
-        else if (i == c00) {
-            to[i] = '0';
-            tz[i] = '0';
-            c00+=3;
-        }
 
-        if(s[i] == '1') {
-            tz[i] = '1';
-            to[i] = '1';
-        }
-    }
+    int z = count(s.begin(), s.end(), '0'), o = count(s.begin(), s.end(), '1');
 
-    for(int i = 0; i < n; i++){
-        
-        cout <<"to: " << to[i] << " tz: " << tz[i] << " ";
-    }
-    cout << endl;
-    // cout << count(s.begin(), s.end(), '1') << endl;
+    if(o > (n + 2)/3) cout << o << endl;
+    else if (n > 2 && (s[0] == '1' || s[2] == '1') && (s[n-1] == '1' || s[n-3] == '1' || n==3) && n%2) cout << (n + 2)/3 + 1 << endl;
+    else cout << (n + 2)/3 << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
