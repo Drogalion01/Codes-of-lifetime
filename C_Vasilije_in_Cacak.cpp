@@ -3,8 +3,6 @@ using namespace std;
 void solve(){
     long long n, k, x;
     cin >> n >> k >> x;
-    // int t = (k*(2*n - k + 1))/2;
-    // cout << t << endl;
     if(x >= ((k*(k+1))/2) && x <= (k*(2*n - k + 1))/2) cout << "YES" << endl;
     else cout << "NO" << endl;
 }
