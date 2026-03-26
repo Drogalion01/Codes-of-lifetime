@@ -5,27 +5,17 @@ void solve(){
     cin >> n >> m >> k;
     int x, y;
     cin >> x >> y;
-    vector <pair<int, int>> a(n);
+    vector <pair<int, int>> a(k);
     for(int i = 0; i < k; i++){
         cin >> a[i].first >> a[i].second;
     }
-    int nr = max(1, y - 1), su = min (n, y + 1), ea = max(1, x - 1), we = min (m, x + 1);
-    // cout << nr << " "  << su << " " << ea << " " << we << endl;
-    if(k > 3) {
-        // int nr = max(1, y - 1), su = min (n, y + 1), ea = max(1, x - 1), we = min (m, x + 1);
-        bool nf = false, sf = false, ef = false, wf = false;
-        for(int i = 0; i < n; i++){
-            if(a[i].first == x && a[i].second == nr) nf = true;
-            else if (a[i].first == x && a[i].second == su) sf = true;
-            else if (a[i].first == ea && a[i].second == y) ef = true;
-            else if (a[i].first == we && a[i].second == y) wf = true;
+    for(int i = 0; i < k; i++){
+        if((abs(x-a[i].first) + abs(y-a[i].second))%2 == 0) {
+            cout << "NO" << endl;
+            return;
         }
-        if(nf && sf && ef && wf) cout << "YES" << endl;
-        else cout << "NO" << endl;
     }
-    else if (k > 1) {
-        
-    }
+    cout << "YES" << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
