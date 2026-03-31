@@ -1,25 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
+int mex(const vector<int>& a, int n) {
+    vector<int> seen(n + 1, 0);
+    for (int x : a) {
+        if (0 <= x && x <= n) {
+            seen[x] = 1;
+        }
+    }
+    for (int i = 0; i <= n; i++) {
+        if (!seen[i]) {
+            return i;
+        }
+    }
+    return n + 1;
+}
 void solve(){
     int n, k;
     cin >> n >> k;
-    vector <int> a(n);
-    vector <int> t(n+1, 0);
-    for(auto& x : a) {
-        cin >> x;
-        t[x]++;
-    }
-    int mex; 
-    for(int i = 0; i < n; i++){
-        if(t[i]==0) {
-            mex = i;
-            break;
-        }
-    }
-    for(int i = 0; i < n; i++){
-        
-    }
-    cout << min (mex, k-1) << endl;    
+    vector<int> a(n);
+    for (auto& x : a) cin >> x;
+
+    int m = mex(a, n);
+    cout << min(k - 1, m) << '\n';
 }
 int main(){
     ios::sync_with_stdio(false);
