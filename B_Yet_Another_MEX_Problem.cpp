@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 int mex(const vector<int>& a, int n) {
-    vector<int> seen(n + 1, 0);
+    vector<int> t(n + 1, 0);
     for (int x : a) {
         if (0 <= x && x <= n) {
-            seen[x] = 1;
+            t[x] = 1;
         }
     }
     for (int i = 0; i <= n; i++) {
-        if (!seen[i]) {
+        if (!t[i]) {
             return i;
         }
     }
