@@ -5,50 +5,42 @@ void solve(){
     cin >> n;
     string s;
     cin >> s;
-    bool isOne = false, isZero = false, bob=true;
-    int cnt = 0, one = count(s.begin(), s.end(), '1'), zero = count (s.begin(), s.end(), '0');
-    if(zero == n || one == n) {
+    string t = s;
+    sort(t.begin(), t.end());
+    int one = count(s.begin(), s.end(), '1'), zero = count (s.begin(), s.end(), '0');
+    if(zero == n || one == n || t==s) {
         cout << "Bob" << endl;
-        // cout << "-1" << endl;
         return;
     } 
-    for(int j = 0; j < n; j++){
-        if(s[j] == '1'){
-            if(isOne && isZero) {
-                cnt++;
-                isZero = false;
+    
+    vector<int> ones, zeroes;
+
+    for(int i = 0; i < n; i++){
+        if(s[i] == '1') ones.push_back(i);
+        else zeroes.push_back(i);
+    }
+
+    for(int i = ones.size()-1; i >=0; i--){
+        int cnt = zeroes.end() - lower_bound(zeroes.begin(), zeroes.end(), ones[i]);
+        // for(int j = 0; j < zeroes.size(); j++){
+        //     if(ones[i] < zeroes[j]){
+        //         cnt = zeroes.size() - j;
+        //         break;
+        //     } 
+        // }
+        if(i+1<= cnt) {
+            cout << "Alice\n" << i + 1 + min(i+1, cnt) << endl;
+            for(int j = 0; j <= i; j++){
+                cout << ones[j]+1 << " ";
             }
-            else isOne = true;
-            // cout << "1" << endl;
+            for(int j = max(0, (int)zeroes.size() - min(i+1,cnt)); j < zeroes.size(); j++){
+                cout << zeroes[j]+1 << " ";
+            }
+            cout << endl; 
+            return;
         } 
-        else if(s[j]== '0' && isOne) {
-            bob = false, isZero = true;
-            // cout << "2" << endl;
-        }
-    }
-    if(s[n-1] == '0') cnt++; 
-    if(cnt%2==0 || bob) cout << "Bob" << endl;
-    else {
-        int c1 = 0, j;
-        vector <int> id;
-        isOne = false, isZero=false;
-        for(int i = 0; i < n; i++){
-            if(s[i] == '1'){
-                if(isOne && isZero) {
-                    break;
-                }
-                else isOne = true;
-            }
-            else if(s[i]== '0' && isOne) isZero = true;
-            
-            if(isOne) c1++, id.push_back(i+1);
-        }
-        cout << "Alice\n" << c1 << endl;
-        for(auto x : id) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
+    } 
+    cout << "Bob" << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
