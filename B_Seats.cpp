@@ -29,20 +29,10 @@ void solve(){
         }
     }
     zero.push_back({cnt, 1});
-    // for(int i = 0; i < zero.size(); i++){
-    //     cout << zero[i].first << " ";
-    // }
-    // cout << endl;
 
     if(n==count(s.begin(), s.end(), '0')) {
-        if(n%3==0) {
-            cout << n/3 << endl;
-            return;
-        }
-        else {
-            cout << n/3+1 << endl;
-            return;
-        }
+        cout << (n+2)/3 << endl;
+        return;
     }
 
     for(int i = 0; i < zero.size(); i++){
