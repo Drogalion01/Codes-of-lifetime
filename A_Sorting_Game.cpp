@@ -22,12 +22,7 @@ void solve(){
 
     for(int i = ones.size()-1; i >=0; i--){
         int cnt = zeroes.end() - lower_bound(zeroes.begin(), zeroes.end(), ones[i]);
-        // for(int j = 0; j < zeroes.size(); j++){
-        //     if(ones[i] < zeroes[j]){
-        //         cnt = zeroes.size() - j;
-        //         break;
-        //     } 
-        // }
+        
         if(i+1<= cnt) {
             cout << "Alice\n" << i + 1 + min(i+1, cnt) << endl;
             for(int j = 0; j <= i; j++){
