@@ -43,7 +43,6 @@ void solve(){
             one += (int)(zero[i].first/3);
         }
     }
-
     cout << one << endl;
 }
 int main(){
