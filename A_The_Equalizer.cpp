@@ -5,20 +5,13 @@ void solve(){
     cin >> n >> k;
     vector<int>a(n);
     for(auto& x : a) cin >> x;
-    int cnt = 1, t = 0;
+    int cnt = 0, t = 0;
     for(int i = 0; i < n; i++){
-        if(!i) t = a[i];
-        else if(a[i] == t) cnt++;
+        cnt+=a[i];
     }
 
-    if((k%2 && n%2==0) || (k%2==0 && n%2)) {
-        cout << "YES" << endl;
-        return;
-    }
-    else {
-        cout << "NO" << endl;
-        return;
-    }
+    if(cnt%2 || (cnt+n*k)%2==0) cout << "YES" << endl;
+    else cout << "NO" << endl;
 
 }
 int main(){
