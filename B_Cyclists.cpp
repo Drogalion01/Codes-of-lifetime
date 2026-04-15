@@ -4,23 +4,24 @@ void solve(){
     int n, k, p, m;
     cin >> n >> k >> p >> m;
     vector<int> a(n);
-    for(auto& x : a) cin >> x;
-    vector<long long> tmp;
+    vector<int, vector<int>> tmp(2, vector<int>(n));
+    for(auto& x : a) {
+        cin >> x;
+    }
+    for(int i = 0; i < n; i++){
+        tmp [0] = a[i];
+        tmp [1] = i;
+    }
+    if(a[p-1] > m) {
+        cout << "0" << endl;
+        return;
+    }
+    int pc = m/a[p-1];
+    sort (tmp.begin(), tmp.end());
 
-        long long turn = a[0]*p;
-        for(int i = 1; i < p; i++){
-            turn = min(turn, (long long)(a[i]*(p-i)));
-        }
-        int rem = m-turn;
-        if(rem < 0) cout << "0" << endl;
-        else {
-            int cycle = 0;
-            for(int i = 0; i < k; i++){
-                cycle = max(cycle, rem / (a[i]*(n-i)));
-            }
-            cout << cycle+1 << endl;
-        }
-
+    if(p > k) {
+        
+    }
 }
 int main(){
     ios::sync_with_stdio(false);
