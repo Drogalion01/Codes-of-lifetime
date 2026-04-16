@@ -4,70 +4,63 @@ void solve(){
     long long n, h, k;
     cin >> n >> h >> k;
     vector <long long> a(n);
-    vector <pair<long long, int>> tmp(n);
+    vector <pair<long long, long long>> tmp(n);
+    vector<pair<int, int>> idx(n);
     for(auto& x : a) cin >> x;
     
-    for(int i = n-1; i >= 0; i--){
-        tmp[i].first = a[i];
-        tmp[i].second = i;
+    tmp[n-1].first = a[n-1];
+    idx[n-1].first = n-1;
+    tmp[0].second = a[0];
+    idx[0].second = 0;
+    for(int j = n-2; j >= 0; j--){
+        if(a[j] >= tmp[j+1].first) {
+            tmp[j].first = a[j];
+            idx[j].first = j;
+        }
+        else {
+            tmp[j].first = tmp[j+1].first;
+            idx[j].first = idx[j+1].first;
+        }
     }
-    
-    sort (tmp.begin(), tmp.end());
+
+    for(int i = 1; i < n; i++){
+        if(tmp[i-1].second > a[i]) idx[i].second = i;
+        else idx[i].second = idx[i-1].second;
+        tmp[i].second = min(tmp[i-1].second, a[i]);
+    }
 
     long long sum = 0;
     for(int i = 0; i < n; i++) {
         sum += a[i];
     }
     
-    auto itn = min_element (a.begin(), a.end());
-    auto itx = max_element (a.begin(), a.end());
+    long long cy = h/sum;
+    long long time = cy*n + max(0LL,(cy-1))*k;
 
-    long long c = h/sum;
-    long long r = c*n + c*k;
-    if (h%sum == 0) {
-        cout << r - k << endl;
-    } 
+    if(h%sum == 0) cout << time << endl;
     else {
-        int idn = -1, idx = - 1;
-        for(int i = n-1; i >= 0; i--){
-            if(tmp[i].first > *itn && tmp[i].second > itn-a.begin()) {
-                idx = tmp[i].second;
-                break;
-            }
-        }
+        if(cy>0) time += k;
+
+        long long rem = h%sum;
+        vector<long long> pref(n+1, 0);
+
         for(int i = 0; i < n; i++){
-            if (tmp[i].first < *itx && tmp[i].second < itx-a.begin()) {
-                idn = tmp[i].second;
-                break;
-            }
-        }
-        if (idx != -1 && idn != -1 && idx > idn) {
-            swap (a[idx], a[idn]);
-            // cout << "t1" << endl;
-        }
-        else if (idx != -1 && idn == -1) {
-            swap (a[itn-a.begin()], a[idx]);
-            // cout << "t2" << endl;
-        }
-        else if (idx == -1 && idn != -1) {
-            swap (a[itx-a.begin()], a[idn]);
-            // cout << "t3" << endl;
+            pref[i+1] = pref[i]+a[i];
         }
 
-        // for(auto& x : a) cout << x << " ";
-        // cout << endl;
-        vector<long long> pref(n+1, 0);
-        for(int i = 0; i < n; i++) {
-            pref[i+1] = pref[i] + a[i];
+        for(long long i = 1; i <= n; i++){
+            long long hobe = pref[i];
+            if(i<n) hobe = max (pref[i], pref[i] - tmp[i-1].second + tmp[i].first);
+            
+            // cout << idx[i-1].first << " " << rem << " " << hobe << " " << pref[i] << " " << tmp[i-1].second << " " << tmp[i-1].first << endl;
+            if(hobe >= rem) {
+                time++;
+                cout << time << endl;
+                return;
+            }
+            else time++;
         }
-        // for(auto& x : pref) cout << x << " ";
-        // cout << endl;
-        long long rem = h - c*pref[n];
-        for(int i = 1; i < n+1; i++){
-            r++;
-            if(rem <= pref[i]) break;
-        }
-        cout << r << endl;
+        cout << time << endl;
     }
     
 }
