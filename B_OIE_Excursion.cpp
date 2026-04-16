@@ -9,9 +9,9 @@ void solve() {
     vector<LL> a(n);
     for (auto& x : a) cin >> x;
 
-    LL t = 1;
-    for (int i = 1; i < n; i++) {
-        if (a[i] == a[i - 1]) {
+    LL t = 0, tmp = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] == tmp) {
             t++;
         } else {
             t = 1;
@@ -20,6 +20,7 @@ void solve() {
             cout << "NO" << endl;
             return;
         }
+        tmp = a[i];
     }
 
     cout << "YES" << endl;
