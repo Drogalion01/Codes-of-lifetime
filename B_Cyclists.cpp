@@ -28,7 +28,7 @@ void solve(){
                 mn = d[i].first;
             }
         }
-        if(idx == -1 || m < d[idx].first) break;
+        if(m < d[idx].first) break;
         m-=d[idx].first;
         if(d[idx].second) cnt++;
         vector<pair<int, bool>> tmp;
