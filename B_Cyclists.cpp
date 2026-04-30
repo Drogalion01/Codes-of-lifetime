@@ -1,66 +1,53 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+using ll = long long;
 void solve(){
     int n, k, p, m;
     cin >> n >> k >> p >> m;
-
     vector<int> a(n);
     for(auto& x : a) {
         cin >> x;
     }
-
-    vector<pair<int, bool>> deck;
-    deck.reserve(n);
+    vector<pair<int, bool>> d(n);
     for(int i = 0; i < n; i++){
-        deck.push_back({a[i], i == p - 1});
+        d[i].first = a[i];
+        if(i==p-1) d[i].second = true;
+        else d[i].second = false;
     }
-
-    int ans = 0;
-    while(true){
-        int limit = min(k, (int)deck.size());
-        int chosen = -1;
-        int bestCost = INT_MAX;
-
-        for(int i = 0; i < limit; i++){
-            if(deck[i].second){
-                chosen = i;
+    int cnt = 0;
+    
+    while(true) {
+        ll mn = INT_MAX, idx = -1;
+        for(int i = 0; i < k; i++){
+            if(d[i].second) {
+                idx = i;
                 break;
             }
-            if(deck[i].first < bestCost){
-                bestCost = deck[i].first;
-                chosen = i;
+            else if (mn > d[i].first){
+                idx = i;
+                mn = d[i].first;
             }
         }
+        if(idx == -1 || m < d[idx].first) break;
+        m-=d[idx].first;
+        if(d[idx].second) cnt++;
+        vector<pair<int, bool>> tmp;
+        tmp.reserve(n);
+        for(int i = 0; i < idx; i++){
+            tmp.push_back(d[i]);
+        }
+        for(int i = idx+1; i < n; i++){
+            tmp.push_back(d[i]);
+        }
+        tmp.push_back(d[idx]);
 
-        if(chosen == -1 || deck[chosen].first > m){
-            break;
-        }
-
-        m -= deck[chosen].first;
-        if(deck[chosen].second){
-            ans++;
-        }
-
-        vector<pair<int, bool>> nextDeck;
-        nextDeck.reserve(n);
-        for(int i = 0; i < chosen; i++){
-            nextDeck.push_back(deck[i]);
-        }
-        for(int i = chosen + 1; i < (int)deck.size(); i++){
-            nextDeck.push_back(deck[i]);
-        }
-        nextDeck.push_back(deck[chosen]);
-        deck.swap(nextDeck);
+        d.swap(tmp);
     }
-
-    cout << ans << '\n';
+    cout << cnt << endl;
 }
-
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
     int test_case;
     cin >> test_case;
     while(test_case--){
