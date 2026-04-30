@@ -5,26 +5,21 @@ void solve(){
     ll n, x;
     cin >> n >> x;
     ll ans;
-    bool pos = false;
+    vector<ll> a(n), b(n), c(n);
     for(int i = 0; i < n; i++){
-        ll a, b, c, tmp = 0;
-        cin >> a >> b >> c;
-        if(a*b <= c && a*(b-1) < x) continue;
-        else {
-            pos = true;
-            ll p = a*b-c;
-            if(a*b-c <= 0 || a*(b-1) >= x) tmp = 0;
-            else {
-                tmp = (x-p+1)/p;
-                if(x > tmp*p + a*(b-1)) tmp++;
-                if(x>(tmp+1)*p) tmp++;
-            }
-        } 
-        if(i == 0) ans = tmp;
-        else ans = min(tmp, ans);
+        cin >> a[i] >> b[i] >> c[i]; 
     }
-    if(pos) cout << ans << endl;
-    else cout << -1 << endl;
+    ll base = 0;
+    for(int i = 0; i < n; i++){
+        base+=a[i]*(b[i]-1);
+    }
+    ll p=0;
+    for(int i = 0; i < n; i++){
+        p = max(p, a[i]*b[i]-c[i]);
+    }
+    if(p<=0) cout << -1 << endl;
+    else if(base >= x) cout << 0 << endl;
+    else cout << (x-base+p-1)/p << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
