@@ -6,7 +6,7 @@ void solve(){
     cin >> a >> b;
     int tmp = a + 2 * b;
 
-    for(int i = 1; i <= 10e6; i++){
+    for(int i = 1; i <= 10e5; i++){
         int den = 2 * i + 1;
         int num = tmp - i;
 
