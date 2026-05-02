@@ -17,8 +17,8 @@ void solve(){
     for(int i = 0; i < n; i++){
         p = max(p, a[i]*b[i]-c[i]);
     }
-    if(p<=0) cout << -1 << endl;
-    else if(base >= x) cout << 0 << endl;
+    if(base >= x) cout << 0 << endl;
+    else if(p<=0) cout << -1 << endl;
     else cout << (x-base+p-1)/p << endl;
 }
 int main(){
