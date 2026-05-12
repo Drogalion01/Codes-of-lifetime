@@ -14,25 +14,34 @@ void solve(){
     cin >> n;
     vector<int>a(n);
     for(auto& x : a) cin >> x;
+    sort(a.begin(), a.end());
     if(mex(a, 0, n) == n) {
         cout << n << endl;
         return;
     }
-    map<int, int>serial;
-    for(int i = 0; i < n; i++) serial[a[i]]++;
-    int c = 0, k = 0, ans = 0;
-    for(auto i = serial.begin(); i != serial.end(); i++){
-        if (i->first == c) {
-            k++;
-            c++;
+    int ans, c = 0, ;
+    for(int i = 0; i < n - 1; i++){
+        if(a[i] + 1 == a[i+1]) {
+            c = a[i+1] - a[i];
         }
-        else {
-            c = i->first;
-            ans = max(ans, k+1);
-            k = 1;
-        }
+        
     }
-    ans = max(ans, k+1);
+
+    // map<int, int>serial;
+    // for(int i = 0; i < n; i++) serial[a[i]]++;
+    // int c = 0, k = 0, ans = 0;
+    // for(auto i = serial.begin(); i != serial.end(); i++){
+    //     if (i->first == c) {
+    //         k++;
+    //         c++;
+    //     }
+    //     else {
+    //         c = i->first;
+    //         ans = max(ans, k+1);
+    //         k = 1;
+    //     }
+    // }
+    // ans = max(ans, k+1);
     cout << ans << endl;
 }
 int main(){

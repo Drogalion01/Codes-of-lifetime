@@ -18,18 +18,20 @@ void solve(){
     ll mx = *max_element(a.begin(), a.end());
 
     ll sum = 0, c = 1;
-    for(int i = 0; i < n; i++){
-        if(i == 0) sum += max(mx, 1LL);
-        else if(mx != 0 && mx >= m && i < m && i < n-1) {
-            sum += c + mx;
-            c++;
-        }
-        else if(mx != 0 && mx < m && i - 2 < m && i < n-1) {
-            sum += c + mx;
-            c++;
-        }
-        else sum += m + mx;
-    }
+    // for(int i = 0; i < n; i++){
+    //     if(i == 0) sum += max(mx, 1LL);
+    //     else if(mx != 0 && mx >= m && i < m && i < n-1) {
+    //         sum += c + mx;
+    //         c++;
+    //     }
+    //     else if(mx != 0 && mx < m && i - 2 < m && i < n-1) {
+    //         sum += c + mx;
+    //         c++;
+    //     }
+    //     else sum += m + mx;
+    // }
+    sum = n*mx + ((m+1)*m)/2 + (n-1-m)*m;
+    if(mx < m) sum = sum - mx + m;
     cout << sum << endl;
 }
 int main(){
