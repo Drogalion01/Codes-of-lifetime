@@ -1,52 +1,59 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void solve() {
+using ll = long long;
+void solve(){
     int n;
     cin >> n;
     string a, b;
     cin >> a >> b;
 
-    int t = count(a.begin(), a.end(), '(') + count(b.begin(), b.end(), '(');
+    stack <int> idx1, idx2;
 
-    if (t != n) {
-        cout << "NO" << endl;
-        return;
+    bool flag = true;
+
+    for(int i = 0; i < n; i++){
+        if(a[i] == '(') idx1.push(i);
+        else if(!idx1.empty()) idx1.pop();
+    }  
+
+    while(!idx1.empty()){
+        int tmp = idx1.top();
+        idx1.pop();
+        swap(a[tmp], b[tmp]);
     }
 
-    int bala = 0, balb = 0;
-    bool ok = true;
-
-    for (int i = 0; i < n; i++) {
-        if (a[i] == b[i]) {
-            if (a[i] == '(') { 
-                bala++; 
-                balb++; 
-            }
-            else { 
-                bala--; 
-                balb--; 
-            }
-        } else {
-            if (bala <= balb) { 
-                bala++; 
-                balb--; 
-            }
-            else { 
-                bala--; 
-                balb++; 
-            }
-        }
-        if (bala < 0 || balb < 0) { ok = false; break; }
+    for(int i = 0; i < n; i++){
+        if(b[i] == '(') idx2.push(i);
+        else if(!idx2.empty()) idx2.pop();
+    }
+    while(!idx2.empty()){
+        int tmp = idx2.top();
+        idx2.pop();
+        swap(a[tmp], b[tmp]);
     }
 
-    cout << (ok ? "YES" : "NO") << endl;
+    int c1 = 0, c2 = 0;
+    for(int i = 0; i < n; i++) {
+        if(a[i] == '(') c1++;
+        if(a[i] == ')') c1--;
+        if(a[i] == ')' && c1 < 0) flag = false;
+        if(b[i] == '(') c2++;
+        if(b[i] == ')') c2--;
+        if(b[i] == ')' && c2 < 0) flag = false;
+    }
+
+    if(c1 != 0 || c2 != 0) flag = false;
+    
+    if(flag) cout << "YES" << endl;
+    else cout << "NO" << endl;
 }
-
-int main() {
+int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t; 
-    cin >> t;
-    while (t--) solve();
+    int test_case;
+    cin >> test_case;
+    while(test_case--){
+        solve();
+    }
+    return 0;
 }
