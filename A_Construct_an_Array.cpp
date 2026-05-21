@@ -4,9 +4,10 @@ using ll = long long;
 void solve(){
     int n;
     cin >> n;
-    vector<int>a(n);
-    for(auto& x : a) cin >> x;
-    
+    for(int i = 1; i <= 2*n; i++){
+        if(i%2) cout << i << " ";
+    }
+    cout << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
