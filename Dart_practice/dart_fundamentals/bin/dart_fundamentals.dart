@@ -1,82 +1,84 @@
-// import 'dart:io';
+import 'dart:io';
 
-// void main() {
-//   const studentCount = 5;
+void main() {
+  const studentCount = 5;
 
-//   final List<Map<String, String>> students = [];
-//   final Set<String> contactNumbers = {};
+  final List<Map<String, String>> students = [];
+  final Set<String> contactNumbers = {};
 
-//   for (var index = 1; index <= studentCount; index++) {
-//     stdout.writeln('Enter information for student $index:');
+  for (var index = 1; index <= studentCount; index++) {
+    stdout.writeln('Enter information for student $index:');
 
-//     final name = _readRequired('Name');
-//     final details = _readRequired('Details/About');
-//     final presentAddress = _readRequired('Present Address');
-//     final permanentAddress = _readRequired('Permanent Address');
-//     final contactNumber = _readUniqueContact(contactNumbers);
-//     final age = _readAge();
+    final id = index;
+    final name = _readRequired('Name');
+    final details = _readRequired('Details/About');
+    final presentAddress = _readRequired('Present Address');
+    final permanentAddress = _readRequired('Permanent Address');
+    final contactNumber = _readUniqueContact(contactNumbers);
+    final age = _readAge();
 
-//     students.add({
-//       'Name': name,
-//       'Details/About': details,
-//       'Present Address': presentAddress,
-//       'Permanent Address': permanentAddress,
-//       'Contact Number': contactNumber,
-//       'Age': age.toString(),
-//     });
+    students.add({
+      'ID': id,
+      'Name': name,
+      'Details/About': details,
+      'Present Address': presentAddress,
+      'Permanent Address': permanentAddress,
+      'Contact Number': contactNumber,
+      'Age': age.toString(),
+    });
 
-//     stdout.writeln();
-//   }
+    stdout.writeln();
+  }
 
-//   stdout.writeln('All Student Information:');
+  stdout.writeln('All Student Information:');
 
-//   for (var index = 0; index < students.length; index++) {
-//     final student = students[index];
-//     stdout.writeln('Student ${index + 1}:');
-//     student.forEach((field, value) {
-//       stdout.writeln('$field: $value');
-//     });
-//     stdout.writeln();
-//   }
-// }
+  for (var index = 0; index < students.length; index++) {
+    final student = students[index];
+    stdout.writeln('Student ${index + 1}:');
+    student.forEach((field, value) {
+      stdout.writeln('$field: $value');
+    });
+    stdout.writeln();
+  }
+}
 
-// String _readRequired(String fieldName) {
-//   while (true) {
-//     stdout.write('$fieldName: ');
-//     final input = stdin.readLineSync()?.trim();
+String _readRequired(String fieldName) {
+  while (true) {
+    stdout.write('$fieldName: ');
+    final input = stdin.readLineSync()?.trim();
 
-//     if (input != null && input.isNotEmpty) {
-//       return input;
-//     }
+    if (input != null && input.isNotEmpty) {
+      return input;
+    }
 
-//     stdout.writeln('Please enter a valid $fieldName.');
-//   }
-// }
+    stdout.writeln('Please enter a valid $fieldName.');
+  }
+}
 
-// String _readUniqueContact(Set<String> existingContacts) {
-//   while (true) {
-//     final contactNumber = _readRequired('Contact Number');
+String _readUniqueContact(Set<String> existingContacts) {
+  while (true) {
+    final contactNumber = _readRequired('Contact Number');
 
-//     if (existingContacts.add(contactNumber)) {
-//       return contactNumber;
-//     }
+    if (existingContacts.add(contactNumber)) {
+      return contactNumber;
+    }
 
-//     stdout.writeln(
-//       'This contact number is already used. Enter a different one.',
-//     );
-//   }
-// }
+    stdout.writeln(
+      'This contact number is already used. Enter a different one.',
+    );
+  }
+}
 
-// int _readAge() {
-//   while (true) {
-//     stdout.write('Age: ');
-//     final input = stdin.readLineSync()?.trim();
-//     final age = int.tryParse(input ?? '');
+int _readAge() {
+  while (true) {
+    stdout.write('Age: ');
+    final input = stdin.readLineSync()?.trim();
+    final age = int.tryParse(input ?? '');
 
-//     if (age != null && age > 0) {
-//       return age;
-//     }
+    if (age != null && age > 0) {
+      return age;
+    }
 
-//     stdout.writeln('Please enter a valid age.');
-//   }
-// }
+    stdout.writeln('Please enter a valid age.');
+  }
+}
