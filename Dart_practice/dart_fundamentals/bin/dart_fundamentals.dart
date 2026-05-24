@@ -18,7 +18,7 @@ void main() {
     final age = _readAge();
 
     students.add({
-      'ID': id,
+      'ID': id.toString(),
       'Name': name,
       'Details/About': details,
       'Present Address': presentAddress,
@@ -30,55 +30,70 @@ void main() {
     stdout.writeln();
   }
 
-  stdout.writeln('All Student Information:');
+  stdout.write('Enter student ID: ');
+  final input = stdin.readLineSync()?.trim();
 
-  for (var index = 0; index < students.length; index++) {
-    final student = students[index];
-    stdout.writeln('Student ${index + 1}:');
-    student.forEach((field, value) {
-      stdout.writeln('$field: $value');
-    });
-    stdout.writeln();
+  Map<String, String>? found;
+  try {
+    found = students.firstWhere((s) => s['ID'] == input);
+  } catch (_) {
+    found = null;
   }
-}
 
-String _readRequired(String fieldName) {
-  while (true) {
-    stdout.write('$fieldName: ');
-    final input = stdin.readLineSync()?.trim();
-
-    if (input != null && input.isNotEmpty) {
-      return input;
-    }
-
-    stdout.writeln('Please enter a valid $fieldName.');
+  if (found != null) {
+    found.forEach((k, v) => stdout.writeln('$k: $v'));
+  } else {
+    stdout.writeln('Student not found for ID $input');
   }
-}
 
-String _readUniqueContact(Set<String> existingContacts) {
-  while (true) {
-    final contactNumber = _readRequired('Contact Number');
+  //   for (var index = 0; index < students.length; index++) {
+  //     final student = students[index];
+  //     stdout.writeln('Student ${index + 1}:');
+  //     student.forEach((field, value) {
+  //       stdout.writeln('$field: $value');
+  //     });
+  //     stdout.writeln();
+  //   }
+  // }
 
-    if (existingContacts.add(contactNumber)) {
-      return contactNumber;
+  String _readRequired(String fieldName) {
+    while (true) {
+      stdout.write('$fieldName: ');
+      final input = stdin.readLineSync()?.trim();
+
+      if (input != null && input.isNotEmpty) {
+        return input;
+      }
+
+      stdout.writeln('Please enter a valid $fieldName.');
     }
-
-    stdout.writeln(
-      'This contact number is already used. Enter a different one.',
-    );
   }
-}
 
-int _readAge() {
-  while (true) {
-    stdout.write('Age: ');
-    final input = stdin.readLineSync()?.trim();
-    final age = int.tryParse(input ?? '');
+  String _readUniqueContact(Set<String> existingContacts) {
+    while (true) {
+      final contactNumber = _readRequired('Contact Number');
 
-    if (age != null && age > 0) {
-      return age;
+      if (existingContacts.add(contactNumber)) {
+        return contactNumber;
+      }
+
+      stdout.writeln(
+        'This contact number is already used. Enter a different one.',
+      );
     }
+  }
 
-    stdout.writeln('Please enter a valid age.');
+  int _readAge() {
+    while (true) {
+      stdout.write('Age: ');
+      final input = stdin.readLineSync()?.trim();
+      final age = int.tryParse(input ?? '');
+
+      if (age != null && age > 0) {
+        return age;
+      }
+
+      stdout.writeln('Please enter a valid age.');
+    }
   }
 }

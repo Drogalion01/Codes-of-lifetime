@@ -12,7 +12,6 @@ void main() {
   else
     print("Failed");
 
-  String? name = stdin.readLineSync();
-  name = name?.trim() ?? "Bhuski";
-  print('$name');
+  final name = stdin.readLineSync()?.trim() ?? "Bhuski";
+  print(name);
 }
