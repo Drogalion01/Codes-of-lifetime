@@ -1,5 +1,46 @@
 import 'dart:io';
 
+String _readRequired(String fieldName) {
+  while (true) {
+    stdout.write('$fieldName: ');
+    final input = stdin.readLineSync()?.trim();
+
+    if (input != null && input.isNotEmpty) {
+      return input;
+    }
+
+    stdout.writeln('Please enter a valid $fieldName.');
+  }
+}
+
+String _readUniqueContact(Set<String> existingContacts) {
+  while (true) {
+    final contactNumber = _readRequired('Contact Number');
+
+    if (existingContacts.add(contactNumber)) {
+      return contactNumber;
+    }
+
+    stdout.writeln(
+      'This contact number is already used. Enter a different one.',
+    );
+  }
+}
+
+int _readAge() {
+  while (true) {
+    stdout.write('Age: ');
+    final input = stdin.readLineSync()?.trim();
+    final age = int.tryParse(input ?? '');
+
+    if (age != null && age > 0) {
+      return age;
+    }
+
+    stdout.writeln('Please enter a valid age.');
+  }
+}
+
 void main() {
   const studentCount = 5;
 
