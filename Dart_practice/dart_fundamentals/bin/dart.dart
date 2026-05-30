@@ -62,13 +62,87 @@
 
 //Type casting
 
-main() {
-  int a = 234;
-  double b = 3.14159;
-  int s = a + b.toInt();
-  print(s);
-  double s2 = a / b;
-  print(s2.toStringAsFixed(16));
-  String r = s2.toString();
-  print(r);
-}
+// main() {
+//   int a = 234;
+//   double b = 3.14159;
+//   int s = a + b.toInt();
+//   print(s);
+//   double s2 = a.toDouble() / b;
+//   print(s2.toStringAsFixed(16));
+//   String r = s2.toString();
+//   print(r);
+
+//   double t = double.parse(r) + b;
+//   print(t);
+//   int c = int.tryParse('1254ff') ?? 0;
+//   print(c);
+//   print(r.runtimeType);
+
+//   a = (234 / 4).toInt();
+//   print(a);
+// }
+
+//Looping
+// import 'dart:io';
+
+// main() {
+//   var st = ['Rk', 'Hs', 'Ad'];
+//   for (var item in st) {
+//     //For each
+//     print(item);
+//   }
+
+//   for (int i = 0; i < st.length; i++) {
+//     print('Hello, Bolod ${st[i]}!!');
+//   }
+
+//   Map<int, String> mp = {1: "Nindiya re", 2: 'Dekho', 3: 'Faasle'};
+//   for (var item in mp.entries) {
+//     print('${item.key} : ${item.value}');
+//   }
+
+//   Map<int, Map<int, String>> tmp = {
+//     1: {2: 'Maher', 4: 'Jayed', 6: 'Sharafat'},
+//     10: {1: 'Mim', 2: 'Dim', 3: 'Payratoli'},
+//   };
+//   for (Map<int, String> el in tmp.values) {
+//     print(el.values);
+//     print(el.keys);
+//     print(el[1] ?? 'Not available');
+//   }
+
+//   st.forEach((i) {
+//     print(i);
+//   });
+//   mp.forEach((key, value) {
+//     print('$key : $value');
+//   });
+
+//   st.forEach((i) {
+//     stdout.write('$i ');
+//   });
+
+//   var hudai = [];
+//   for (int i = 0; i < 3; i++) {
+//     hudai.add(stdin.readLineSync() ?? 'Invalid');
+//     hudai[i] = int.tryParse(hudai[i]) ?? 0;
+//     stdout.write('${hudai[i]} ');
+//   }
+// }
+
+// //Functions
+// void main() {
+//   var bhog = 'Raiyan';
+//   for (int i = 0; i < 5; i++) msg(bhog: bhog);
+// }
+
+// //2 types: positional, named
+// void msg({required String bhog, int? age, bool? manush}) {
+//   print('Hello, $bhog');
+//   print('Khaichish?');
+//   print(manush ?? false);
+//   print('Ghuma ${age ?? 0}');
+// }
+
+//Class
+void main() {}
