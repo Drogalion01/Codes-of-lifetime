@@ -1,0 +1,30 @@
+{
+  "logging": {
+    "active": false,
+    "maxSize": 500
+  },
+  "mode": "patterns",
+  "proxies": [
+    {
+      "active": true,
+      "address": "cse.pstu.ac.bd",
+      "blackPatterns": [],
+      "color": "#0055ff",
+      "password": "proxy@PSTU",
+      "port": 3128,
+      "proxyDNS": true,
+      "title": "PSTU",
+      "type": 1,
+      "username": "default",
+      "whitePatterns": [
+        {
+          "active": true,
+          "pattern": "*",
+          "protocols": 1,
+          "title": "All URLs",
+          "type": 1
+        }
+      ]
+    }
+  ]
+}
