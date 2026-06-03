@@ -145,4 +145,10 @@
 // }
 
 //Class
-void main() {}
+void main() {
+  print('Hello, World!');
+}
+
+class Student {
+  
+}

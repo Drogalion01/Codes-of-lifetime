@@ -23,38 +23,6 @@ void solve(){
         pref1+=a[i];
     }
     cout << mx << endl;
-    // int l = 0, r = 1;
-    // for(int i = 0; i + 1 < n; i++) {
-    //     if(l < n && r < n && a[l] >= -a[r]) {
-    //         w+=a[l];
-    //         l=r;
-    //         r++;
-    //     }
-    //     else if(l < n && r < n && a[l] < -a[r]) {
-    //         bool flag = false;
-    //         int k = r;
-    //         ll tot = 0;
-    //         while(k < n) {
-    //             if(tot < tot-a[k] && tot-a[k] > a[l]) break;
-    //             tot-=a[k++];
-    //             if(tot < a[l]) {
-    //                 flag = true;
-    //                 break;
-    //             }
-    //         }
-    //         if(flag) {
-    //             w+=a[l];
-    //             l=r;
-    //             r++;
-    //         }
-    //         else {
-    //             w-=a[r];
-    //             r++;
-    //         }
-    //     }
-    //     // cout << "w: " << w << endl;
-    // }
-    // cout << w << endl;
 }
 int main(){
     ios::sync_with_stdio(false);
