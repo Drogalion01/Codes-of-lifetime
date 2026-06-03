@@ -145,10 +145,36 @@
 // }
 
 //Class
+import 'dart:io';
+
 void main() {
-  print('Hello, World!');
+  Student leba = Student();
+
+  stdout.write('Enter name: ');
+  leba.name = stdin.readLineSync() ?? 'Unknown';
+
+  stdout.write('Enter age: ');
+  leba.age = int.tryParse(stdin.readLineSync() ?? '') ?? -1;
+
+  stdout.write('Enter Course: ');
+  leba.course = stdin.readLineSync() ?? 'Unknown';
+
+  stdout.write('\n---Student Info---\n');
+  leba.printStudent();
 }
 
 class Student {
+  late String name;
+  late int age;
+  late String course;
+
+  Student();
   
+  void printStudent() {
+    print ('''
+  Name: $name
+  Age: $age
+  Course: $course
+  ''');
+  }
 }

@@ -145,4 +145,36 @@
 // }
 
 //Class
-void main() {}
+import 'dart:io';
+
+void main() {
+  Student leba = Student();
+
+  stdout.write('Enter Name: ');
+  leba.name = stdin.readLineSync() ?? 'Unknown';
+
+  stdout.write('Enter Age: ');
+  leba.age = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+
+  stdout.write('Enter Course: ');
+  leba.course = stdin.readLineSync() ?? 'Unassigned';
+
+  print('\n--- Student Info ---\n');
+  leba.printStudent();
+}
+
+class Student {
+  late String name;
+  late int age;
+  late String course;
+
+  Student();
+
+  void printStudent() {
+    print('''
+Name: ${this.name} 
+Age: ${this.age}
+Course: ${this.course}
+    ''');
+  }
+}
