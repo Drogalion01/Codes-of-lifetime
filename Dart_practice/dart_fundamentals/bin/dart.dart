@@ -144,37 +144,61 @@
 //   print('Ghuma ${age ?? 0}');
 // }
 
-//Class
+// //Class
+// import 'dart:io';
+
+// void main() {
+//   Student leba = Student();
+
+//   stdout.write('Enter Name: ');
+//   leba.name = stdin.readLineSync() ?? 'Unknown';
+
+//   stdout.write('Enter Age: ');
+//   leba.age = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+
+//   stdout.write('Enter Course: ');
+//   leba.course = stdin.readLineSync() ?? 'Unassigned';
+
+//   stdout.write('Enter Institution: ');
+//   Student.institution = stdin.readLineSync() ?? 'Patuakhali Science and Technology University';
+
+//   print('\n--- Student Info ---\n');
+//   leba.printStudent();
+// }
+
+// class Student {
+//   late String name;
+//   late int age;
+//   late String course;
+//   static late String institution;
+
+//   Student() {
+//     print('New Object created');
+//   }
+
+
+//   void printStudent() {
+//     print('''
+// Name: ${this.name} 
+// Age: ${this.age}
+// Course: ${this.course}
+// Institution: ${Student.institution}
+//     ''');
+//   }
+// }
+
+//Ecapsulation
+
 import 'dart:io';
+import 'encapsulation.dart';
 
 void main() {
-  Student leba = Student();
-
-  stdout.write('Enter Name: ');
-  leba.name = stdin.readLineSync() ?? 'Unknown';
-
-  stdout.write('Enter Age: ');
-  leba.age = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
-
-  stdout.write('Enter Course: ');
-  leba.course = stdin.readLineSync() ?? 'Unassigned';
-
-  print('\n--- Student Info ---\n');
-  leba.printStudent();
-}
-
-class Student {
-  late String name;
-  late int age;
-  late String course;
-
-  Student();
-
-  void printStudent() {
-    print('''
-Name: ${this.name} 
-Age: ${this.age}
-Course: ${this.course}
+    print(''' 
+First_name | Last_name | Age | Faculty
+=======================================
     ''');
-  }
+    Student Bolod = Student(stdin.readLineSync() ?? "John", stdin.readLineSync() ?? "Doe", int.tryParse(stdin.readLineSync() ?? "") ?? -1, stdin.readLineSync() ?? "Unknown");
+
+    print(Bolod.getFull());
+
 }
